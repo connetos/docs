@@ -1,0 +1,1154 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.2. QoS配置 &mdash; ConnetOS 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="ConnetOS 1 documentation" href="../../index.html"/>
+        <link rel="up" title="7. 流量策略" href="index.html"/>
+        <link rel="next" title="8. 高可靠-ISS堆叠" href="../iss/index.html"/>
+        <link rel="prev" title="7.1. firewall配置" href="firewall_configuration.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> ConnetOS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">配置指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../shell/index.html">1. Shell介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html">1.1. 概述</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#shell">1.1.1. Shell视图简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id2">1.1.2. 命令行视图特点</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html#id3">1.2. 命令模式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id4">1.2.1. 运维模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id5">1.2.2. 配置模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id6">1.2.3. 模式切换</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html#id9">1.3. 配置方式介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id10">1.3.1. 配置类型介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id11">1.3.2. 配置转换介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id12">1.3.3. 保存启动配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id13">1.3.4. 配置回滚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id14">1.3.5. 配置删除</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html#id15">1.4. 配置查询</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id16">1.4.1. 使用命令行查询配置结果</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id17">1.4.2. 过滤显示信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#more">1.4.3. more提示信息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html#id18">1.5. 快捷键</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html#id19">1.6. 获取帮助</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id20">1.6.1. 命令行自动补齐功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id21">1.6.2. 系统预设帮助</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id22">1.6.3. 命令行错误信息提示</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../shell/shell_configuration.html#id23">1.7. 常用命令行介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id24">1.7.1. 配置命令关键字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shell/shell_configuration.html#id25">1.7.2. 运维命令关键字</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../devops/index.html">2. DevOps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devops/rcc_configuration.html">2.1. RCC远程配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../devops/restful_api_configuration.html">2.2. RESTful API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../system-manage/index.html">3. 设备管理配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html">3.1. 初次登录设备</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id2">3.1.1. 登录方式简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#console">3.1.2. 配置通过Console口登录</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#id3">3.2. 管理口配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id4">3.2.1. 配置管理口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id5">3.2.2. 检查配置结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#id6">3.3. 用户登录权限配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id7">3.3.1. 配置登录访问控制</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#id8">3.4. 带内访问配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id9">3.4.1. 配置带内访问</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#id10">3.5. 帐号管理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id11">3.5.1. 账号介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#local">3.5.2. 配置local账户</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#cli">3.6. CLI登录交换机</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id12">3.6.1. 通过Console口登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#ssh">3.6.2. 通过SSH登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#telnet">3.6.3. 通过Telnet登录</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#nms">3.7. NMS登录设备</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#snmp">3.7.1. SNMP概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id13">3.7.2. 配置SNMP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/login_configuration.html#aaa">3.8. 配置AAA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#id14">3.8.1. AAA介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/login_configuration.html#tacacs">3.8.2. 配置TACACS方式进行认证、授权和计费</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/system-manage_configuration.html">3.9. 配置系统时间</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id2">3.9.1. 系统时间概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id3">3.9.2. 修改本地时间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#ntp">3.9.3. #. 配置NTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id4">3.9.4. 配置时区</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id5">3.10. 配置系统日志</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id6">3.10.1. 配置系统日志</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id7">3.10.2. 本地日志查看</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id8">3.10.3. 查询系统信息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/system-manage_configuration.html#pingtraceroute">3.11. Ping和Traceroute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#ping">3.11.1. Ping功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#traceroute">3.11.2. Traceroute功能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id13">3.12. 设备重启</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id14">3.13. 设备升级</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id15">3.13.1. 系统升级</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../system-manage/system-manage_configuration.html#id16">3.13.2. 配置文件升级</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../interface/index.html">4. 接口配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../interface/interface_configuration.html">4.1. 接口简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interface/interface_configuration.html#id2">4.2. 配置以太接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interface/interface_configuration.html#loopback">4.3. 配置loopback接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interface/interface_configuration.html#id3">4.4. 配置汇聚接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../interface/interface_configuration.html#vlan">4.5. 配置VLAN接口</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../l2/index.html">5. 以太网交换配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../l2/foward-mode_configuration.html">5.1. 转发模式配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../l2/foward-mode_configuration.html#id2">5.1.1. 转发模式简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/foward-mode_configuration.html#id3">5.1.2. 配置转发模式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../l2/macaddress_configuration.html">5.2. MAC地址表配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../l2/macaddress_configuration.html#id1">5.2.1. MAC地址表简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/macaddress_configuration.html#id4">5.2.2. 配置静态MAC地址表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/macaddress_configuration.html#id5">5.2.3. 配置MAC地址表老化时间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/macaddress_configuration.html#id6">5.2.4. 清空MAC地址表</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../l2/vlan_configuration.html">5.3. VLAN配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../l2/vlan_configuration.html#id1">5.3.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/vlan_configuration.html#id9">5.3.2. 配置VLAN的基本功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/vlan_configuration.html#id10">5.3.3. 配置基于接口的VLAN接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/vlan_configuration.html#id11">5.3.4. 查看VLAN</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../l2/lldp_configuration.html">5.4. LLDP配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../l2/lldp_configuration.html#id1">5.4.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../l2/lldp_configuration.html#id7">5.4.2. 配置LLDP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">6. l3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../route/arp_configuration.html">6.1. ARP配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../route/arp_configuration.html#id1">6.1.1. ARP简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/arp_configuration.html#id5">6.1.2. 配置静态ARP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/arp_configuration.html#id6">6.1.3. （可选）配置动态ARP老化时间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/arp_configuration.html#id7">6.1.4. 配置ARP代理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/arp_configuration.html#id8">6.1.5. 查看ARP的配置信息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../route/static_configuration.html">6.2. 静态路由配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../route/static_configuration.html#ip">6.2.1. IP路由简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/static_configuration.html#id2">6.2.2. 静态路由配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/static_configuration.html#id3">6.2.3. 配置静态路由</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/static_configuration.html#id4">6.2.4. 检查配置结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../route/ospf_configuration.html">6.3. OSPF配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id1">6.3.1. OSPF简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id4">6.3.2. 常见概念</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#area">6.3.3. 区域Area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id13">6.3.4. 配置OSPF基本功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id14">6.3.5. 配置OSPF区域</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id15">6.3.6. 配置OSPF的网络类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id16">6.3.7. 配置OSPF选路信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id17">6.3.8. 配置OSPF的路由信息控制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../route/ospf_configuration.html#id18">6.3.9. 调整和优化OSPF网络</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">7. 流量策略</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="firewall_configuration.html">7.1. firewall配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="firewall_configuration.html#id1">7.1.1. firewall简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="firewall_configuration.html#id2">7.1.2. 配置报文过滤功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="firewall_configuration.html#id3">7.1.3. 配置转发策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="firewall_configuration.html#id4">7.1.4. 查看配置结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.2. QoS配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">7.2.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connetosqos">7.2.2. ConnetOS支持的QoS功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">7.2.3. 配置QoS功能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../iss/index.html">8. 高可靠-ISS堆叠</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../iss/iss_configuration.html">8.1. 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../iss/iss_configuration.html#id2">8.1.1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../iss/iss_configuration.html#id3">8.1.2. 常见概念</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../iss/iss_configuration.html#connetos">8.2. ConnetOS支持的堆叠特性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../iss/iss_configuration.html#iss">8.2.1. ISS堆叠的工作原理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../iss/iss_configuration.html#id15">8.3. 配置堆叠功能</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../atp/index.html">9. 自动部署</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../atp/atp_configuration.html">9.1. 自动部署配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../atp/atp_configuration.html#id2">9.1.1. 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../atp/atp_configuration.html#id4">9.1.2. ATP操作指导</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../atp/atp_configuration.html#id7">9.1.3. 查看部署状态</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../flow-monitor/index.html">10. 网络监控和诊断</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../flow-monitor/port-mirror_configuration.html">10.1. 端口镜像配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/port-mirror_configuration.html#id2">10.1.1. 端口镜像概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/port-mirror_configuration.html#id3">10.1.2. 配置端口镜像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/port-mirror_configuration.html#id4">10.1.3. 检查配置结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../flow-monitor/sflow_configuration.html">10.2. sFlow配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/sflow_configuration.html#id1">10.2.1. sFlow简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/sflow_configuration.html#id7">10.2.2. 配置sFlow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../flow-monitor/sdrop_configuration.html">10.3. sDrop配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/sdrop_configuration.html#id1">10.3.1. sDrop概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/sdrop_configuration.html#id2">10.3.2. 配置sDrop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/sdrop_configuration.html#id3">10.3.3. 检查配置结果</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../flow-monitor/navmesh_configuration.html">10.4. Navmesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/navmesh_configuration.html#id1">10.4.1. Navmesh概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow-monitor/navmesh_configuration.html#id2">10.4.2. 查询流量的出入端口</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../vxlan/index.html">11. VXLAN配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../vxlan/vxlan_configuration.html">11.1. VXLAN简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id1">11.1.1. 概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id2">11.1.2. VXLAN网络模型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vxlan/vxlan_configuration.html#connetosvxlan">11.2. Connetos支持的VXLAN功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id5">11.2.1. VXLAN运行机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id6">11.2.2. 识别报文所属的VXLAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#mac">11.2.3. 学习MAC地址</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id7">11.2.4. 接入模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id8">11.2.5. 转发已知单播流量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#bum">11.2.6. BUM流量</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id14">11.3. 配置VXLAN</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#vsi">11.3.1. 配置VSI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id15">11.3.2. 配置VXLAN隧道</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vxlan/vxlan_configuration.html#id16">11.3.3. 配置VXLAN业务接入点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">命令参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/basic/index.html">1. 基础命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/basic/basic.html">1.1. 基础命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#cls">1.1.1. cls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#commit">1.1.2. commit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#configure">1.1.3. configure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#discard">1.1.4. discard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#exit">1.1.5. exit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#help">1.1.6. help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#load">1.1.7. load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#quit">1.1.8. quit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#rollback">1.1.9. rollback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#save">1.1.10. save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#status">1.1.11. status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#top">1.1.12. top</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/basic/basic.html#up">1.1.13. up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/system-manage/index.html">2. 用户登录管理命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/system-manage/eth0.html">2.1. 管理口命令参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/eth0.html#set-interface-management-ethernet-eth0-address">2.1.1. set interface management-ethernet eth0 address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/eth0.html#set-interface-management-ethernet-eth0-dhcp">2.1.2. set interface management-ethernet eth0 dhcp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/eth0.html#set-interface-management-ethernet-eth0-gateway">2.1.3. set interface management-ethernet eth0 gateway</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/eth0.html#show-interface-management-ethernet-eth0">2.1.4. show interface management-ethernet eth0</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/system-manage/login.html">2.2. 登录命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-services-ssh-enable">2.2.1. set system services ssh enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-services-ssh-connection-limit">2.2.2. set system services ssh connection-limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-services-telnet-enable">2.2.3. set system services telnet enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-services-telnet-connection-limit">2.2.4. set system services telnet connection-limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-inband-enable">2.2.5. set system inband enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-login-announcement">2.2.6. set system login announcement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-login-user-authentication">2.2.7. set system login user authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-login-user-class">2.2.8. set system login user class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/login.html#set-system-login-acl-network">2.2.9. set system login-acl network</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/system-manage/rcc.html">2.3. RCC命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/rcc.html#set-system-rcc-allow-client">2.3.1. set system rcc allow-client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/system-manage/rcc.html#set-system-rcc-enable">2.3.2. set system rcc enable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/aaa/index.html">3. AAA命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/aaa/aaa.html">3.1. AAA命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#set-system-aaa-local-enable">3.1.1. set system aaa local enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#set-system-aaa-tacacs-plus-accounting-enable">3.1.2. set system aaa tacacs-plus accounting enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#set-system-aaa-tacacs-plus-auth-type">3.1.3. set system aaa tacacs-plus auth-type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#set-system-aaa-tacacs-plus-authorization-enable">3.1.4. set system aaa tacacs-plus authorization enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#set-system-aaa-tacacs-plus-enable">3.1.5. set system aaa tacacs-plus enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#system-aaa-tacacs-plus-host-server-ip">3.1.6. system aaa tacacs-plus host server-ip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/aaa/aaa.html#set-system-aaa-tacacs-plus-key">3.1.7. set system aaa tacacs-plus key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/syslog/index.html">4. 日志命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/syslog/syslog.html">4.1. 日志命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/syslog/syslog.html#set-system-syslog-host-server-ip">4.1.1. set system syslog host server-ip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/syslog/syslog.html#set-system-syslog-log-facility">4.1.2. set system syslog log-facility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/syslog/syslog.html#set-system-syslog-log-level">4.1.3. set system syslog log-level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/syslog/syslog.html#show-system-syslog">4.1.4. show system syslog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/arp/index.html">5. ARP命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/arp/arp.html">5.1. ARP命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/arp/arp.html#set-protocols-arp-aging-time">5.1.1. set protocols arp aging-time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/arp/arp.html#set-protocols-arp-interface-proxy-enable">5.1.2. set protocols arp interface proxy enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/arp/arp.html#set-protocols-arp-interface-proxy-address">5.1.3. set protocols arp interface proxy address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/arp/arp.html#show-arp">5.1.4. show arp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/arp/arp.html#show-protocols-arp">5.1.5. show protocols arp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/interface/index.html">6. 接口命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/interface/ge-interface.html">6.1. 物理接口命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-description">6.1.1. set interface gigabit-ethernet description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-edge-port-enable">6.1.2. set interface gigabit-ethernet edge-port enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-enable">6.1.3. set interface gigabit-ethernet enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-ether-options-802-3ad">6.1.4. set interface gigabit-ethernet ether-options 802.3ad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-ether-options-flow-control-enable">6.1.5. set interface gigabit-ethernet ether-options flow-control enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-ether-options-mac-learning-enable">6.1.6. set interface gigabit-ethernet ether-options mac-learning enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-family-ethernet-switching-native-vlan-id">6.1.7. set interface gigabit-ethernet family ethernet-switching native-vlan-id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-family-ethernet-switching-port-mode">6.1.8. set interface gigabit-ethernet family ethernet-switching port-mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-family-ethernet-switching-vlan-members">6.1.9. set interface gigabit-ethernet family ethernet-switching vlan members</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-mtu">6.1.10. set interface gigabit-ethernet mtu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-rate-limiting">6.1.11. set interface gigabit-ethernet rate-limiting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-speed">6.1.12. set interface gigabit-ethernet speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-static-mac-address">6.1.13. set interface gigabit-ethernet static-mac-address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ge-interface.html#set-interface-gigabit-ethernet-storm-control">6.1.14. set interface gigabit-ethernet storm-control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/interface/ae-interface.html">6.2. 汇聚接口命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-description">6.2.1. set interface aggregate-ethernet description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-enable">6.2.2. set interface aggregate-ethernet enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-ether-options-flow-control-enable">6.2.3. set interface aggregate-ethernet ether-options flow-control enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-ether-options-lacp-enable">6.2.4. set interface aggregate-ethernet ether-options lacp enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-ether-options-mac-learning-enable">6.2.5. set interface aggregate-ethernet ether-options mac-learning enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-ether-options-min-selected-port">6.2.6. set interface aggregate-ethernet ether-options min-selected-port</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-family-ethernet-switching-native-vlan-id">6.2.7. set interface aggregate-ethernet family ethernet-switching native-vlan-id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-family-ethernet-switching-port-mode">6.2.8. set interface aggregate-ethernet family ethernet-switching port-mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-family-ethernet-switching-vlan-members">6.2.9. set interface aggregate-ethernet family ethernet-switching vlan members</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-mtu">6.2.10. set interface aggregate-ethernet mtu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-static-mac-address">6.2.11. set interface aggregate-ethernet static-mac-address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/ae-interface.html#set-interface-aggregate-ethernet-storm-control">6.2.12. set interface aggregate-ethernet storm-control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/interface/logical-interface.html">6.3. 环回接口命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/logical-interface.html#set-loopback-interface-interface-address">6.3.1. set loopback-interface interface address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/interface/logical-interface.html#set-loopback-interface-interface-description">6.3.2. set loopback-interface interface description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/vlan/index.html">7. VLAN命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/vlan/vlan.html">7.1. VLAN命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vlan/vlan.html#set-vlans-vlan-id">7.1.1. set vlans vlan-id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vlan/vlan.html#set-vlans-vlan-id-l3-interface">7.1.2. set vlans vlan-id l3-interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vlan/vlan.html#set-vlan-interface-interface-address">7.1.3. set vlan-interface interface address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vlan/vlan.html#set-vlan-interface-interface-description">7.1.4. set vlan-interface interface description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vlan/vlan.html#set-vlan-interface-interface-mtu">7.1.5. set vlan-interface interface mtu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vlan/vlan.html#set-vlan-interface-interface-dhcp-relay">7.1.6. set vlan-interface interface dhcp-relay</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/vxlan/index.html">8. VXLAN命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/vxlan/vxlan.html">8.1. VXLAN命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-vsi-vsi-id">8.1.1. set vsi vsi-id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-vsi-vsi-id-description">8.1.2. set vsi vsi-id description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-vsi-vsi-id-flooding-enable">8.1.3. set vsi vsi-id flooding enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-vsi-vsi-id-tunnel-ethernet">8.1.4. set vsi vsi-id tunnel-ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-vsi-vsi-id-vni">8.1.5. set vsi vsi-id vni</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-tunnel-ethernet">8.1.6. set interface tunnel-ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-tunnel-ethernet-description">8.1.7. set interface tunnel-ethernet description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-tunnel-ethernet-destination-address">8.1.8. set interface tunnel-ethernet destination address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-tunnel-ethernet-mode-vxlan">8.1.9. set interface tunnel-ethernet mode vxlan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-tunnel-ethernet-source-address">8.1.10. set interface tunnel-ethernet source address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-tunnel-ethernet-static-mac-address">8.1.11. set interface tunnel-ethernet static-mac-address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#set-interface-family-ethernet-switching-vsi">8.1.12. set interface family ethernet-switching vsi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#show-ethernet-switching-table-vxlan">8.1.13. show ethernet-switching table vxlan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#show-interface-tunnel-ethernet">8.1.14. show interface tunnel-ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/vxlan/vxlan.html#show-vsi">8.1.15. show vsi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/static/index.html">9. 静态路由命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/static/static.html">9.1. 静态路由命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/static/static.html#set-protocols-static-route">9.1.1. set protocols static route</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/static/static.html#set-protocols-static-route-metric">9.1.2. set protocols static route metric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/static/static.html#id14">9.1.3. set protocols static route</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/static/static.html#show-protocols-static">9.1.4. show protocols static</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/ospf/index.html">10. OSPF命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/ospf/ospf.html">10.1. OSPF命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area">10.1.1. set protocols ospf4 area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-area-range-advertise-enable">10.1.2. set protocols ospf4 area area-range advertise enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-area-type">10.1.3. set protocols ospf4 area area-type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-default-lsa-enable">10.1.4. set protocols ospf4 area default-lsa enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-default-lsa-metric">10.1.5. set protocols ospf4 area default-lsa metric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-authentication">10.1.6. set protocols ospf4 area interface address authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-enable">10.1.7. set protocols ospf4 area interface address enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-hello-interval">10.1.8. set protocols ospf4 area interface address hello-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-interface-cost">10.1.9. set protocols ospf4 area interface address interface-cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-neighbor">10.1.10. set protocols ospf4 area interface address neighbor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-passive-enable">10.1.11. set protocols ospf4 area interface address passive enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-priority">10.1.12. set protocols ospf4 area interface address priority</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-retransmit-interval">10.1.13. set protocols ospf4 area interface address retransmit-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-router-dead-interval">10.1.14. set protocols ospf4 area interface address router-dead-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-address-transmit-delay">10.1.15. set protocols ospf4 area interface address transmit-delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-link-type">10.1.16. set protocols ospf4 area interface link-type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-interface-vif">10.1.17. set protocols ospf4 area interface vif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-summaries-enable">10.1.18. set protocols ospf4 area summaries enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-area-virtual-link">10.1.19. set protocols ospf4 area virtual-link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-export">10.1.20. set protocols ospf4 export</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-import">10.1.21. set protocols ospf4 import</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-ip-router-alert-enable">10.1.22. set protocols ospf4 ip-router-alert enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-rfc1583-compatibility-enable">10.1.23. set protocols ospf4 rfc1583-compatibility enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/ospf/ospf.html#set-protocols-ospf4-router-id">10.1.24. set protocols ospf4 router-id</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/load-balance/index.html">11. 负载分担命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/load-balance/load-balance.html">11.1. 负载分担命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-ecmp-algorithm">11.1.1. set forwarding-options load-balance ecmp algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-ecmp-key">11.1.2. set forwarding-options load-balance ecmp key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-ecmp-max-path">11.1.3. set forwarding-options load-balance ecmp max-path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-ecmp-tunnel">11.1.4. set forwarding-options load-balance ecmp tunnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#show-forwarding-options-load-balance-ecmp">11.1.5. show forwarding-options load-balance ecmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-lag-algorithm">11.1.6. set forwarding-options load-balance lag algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-lag-key">11.1.7. set forwarding-options load-balance lag key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-lag-symmetric">11.1.8. set forwarding-options load-balance lag symmetric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#set-forwarding-options-load-balance-lag-tunnel">11.1.9. set forwarding-options load-balance lag tunnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/load-balance/load-balance.html#show-forwarding-options-load-balance-lag-tunnel">11.1.10. show forwarding-options load-balance lag tunnel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/firewall/index.html">12. Firewall命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/firewall/firewall.html">12.1. Firewall命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-term">12.1.1. set firewall term</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-filter-input-output-interface">12.1.2. set firewall filter input/output interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-filter-matching-term-action">12.1.3. set firewall filter matching term action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder">12.1.4. set firewall forwarder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-action-classifying">12.1.5. set firewall forwarder action classifying</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-action-mirroring">12.1.6. set firewall forwarder action mirroring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-action-routing">12.1.7. set firewall forwarder action routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-action-switching">12.1.8. set firewall forwarder action switching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-input">12.1.9. set firewall forwarder input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-match-mode">12.1.10. set firewall forwarder match-mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#set-firewall-forwarder-matching-term">12.1.11. set firewall forwarder matching term</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#show-firewall-forwarder">12.1.12. show firewall forwarder（运维模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#id73">12.1.13. show firewall forwarder（配置模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#show-firewall-term">12.1.14. show firewall term（配置模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#show-firewall-filter">12.1.15. show firewall filter（运维模式）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/firewall/firewall.html#id92">12.1.16. show firewall filter（配置模式）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/qos/index.html">13. QoS命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/qos/qos.html">13.1. QoS命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-class-of-service">13.1.1. set class-of-service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-class-of-service-classifier">13.1.2. set class-of-service classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-class-of-service-classifier-forwarding-class">13.1.3. set class-of-service classifier forwarding-class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-class-of-service-classifier-trust-mode">13.1.4. set class-of-service classifier trust-mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-class-of-service-forwarding-class">13.1.5. set class-of-service forwarding-class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-class-of-service-interface">13.1.6. set class-of-service interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-interface-gigabit-ethernet-cos">13.1.7. set interface gigabit-ethernet cos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-interface-gigabit-ethernet-cos-schedule-mode">13.1.8. set interface gigabit-ethernet cos schedule mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#set-interface-gigabit-ethernet-cos-schedule-queue">13.1.9. set interface gigabit-ethernet cos schedule queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#show-class-of-service">13.1.10. show class-of-service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#show-class-of-service-classifier">13.1.11. show class-of-service classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#show-class-of-service-forwarding-class">13.1.12. show class-of-service forwarding-class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/qos/qos.html#show-class-of-service-interface">13.1.13. show class-of-service interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/lldp/index.html">14. LLDP命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/lldp/lldp.html">14.1. LLDP命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-advertisement-interval">14.1.1. set protocols lldp advertisement-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-enable">14.1.2. set protocols lldp enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-hold-time-multiplier">14.1.3. set protocols lldp hold-time-multiplier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-interface-status">14.1.4. set protocols lldp interface status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-reinit-delay">14.1.5. set protocols lldp reinit-delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-tlv-select-enable">14.1.6. set protocols lldp tlv-select enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#set-protocols-lldp-transmit-delay">14.1.7. set protocols lldp transmit-delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/lldp/lldp.html#show-protocols-lldp">14.1.8. show protocols lldp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/port-mirror/index.html">15. 镜像命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/port-mirror/port-mirror.html">15.1. 镜像命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/port-mirror/port-mirror.html#set-analyzer-instance-input">15.1.1. set analyzer instance input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/port-mirror/port-mirror.html#set-analyzer-instance-output">15.1.2. set analyzer instance output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/port-mirror/port-mirror.html#show-analyzer">15.1.3. show analyzer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/sflow/index.html">16. sFlow命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/sflow/sflow.html">16.1. sFlow命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#clear-sflow-statistics">16.1.1. clear sflow statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-collector">16.1.2. set protocols sflow collector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-header-length">16.1.3. set protocols sflow header-length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-interface-enable">16.1.4. set protocols sflow interface enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-interface-header-length">16.1.5. set protocols sflow interface header-length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-interface-polling-interval">16.1.6. set protocols sflow interface polling-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-interface-sampling-rate">16.1.7. set protocols sflow interface sampling-rate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-polling-interval">16.1.8. set protocols sflow polling-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#set-protocols-sflow-sampling-rate">16.1.9. set protocols sflow sampling-rate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sflow/sflow.html#show-sflow">16.1.10. show sflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/sdrop/index.html">17. sDrop命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/sdrop/sdrop.html">17.1. sDrop命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sdrop/sdrop.html#set-protocols-sdrop-collector-address">17.1.1. set protocols sdrop collector address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sdrop/sdrop.html#set-protocols-sdrop-collector-port">17.1.2. set protocols sdrop collector port</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sdrop/sdrop.html#set-protocols-sdrop-polling-interval">17.1.3. set protocols sdrop polling-interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/sdrop/sdrop.html#show-sdrop">17.1.4. show sdrop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/iss/index.html">18. 堆叠命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/iss/iss.html">18.1. 堆叠命令</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#set-member-id">18.1.1. set member-id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#set-member-id-mad-enable">18.1.2. set member-id mad enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#set-member-id-mad-excluded-interface">18.1.3. set member-id mad excluded-interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#set-member-id-mad-interface">18.1.4. set member-id mad interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#set-member-id-priority">18.1.5. set member-id priority</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#set-interface-gigabit-ethernet-iss-port-enable">18.1.6. set interface gigabit-ethernet iss-port enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#show-iss">18.1.7. show iss</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#show-iss-configuration">18.1.8. show iss configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#show-iss-mad">18.1.9. show iss mad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#show-iss-statistics">18.1.10. show iss statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/iss/iss.html#show-iss-sync-status">18.1.11. show iss sync-status</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/navmesh.html">19. navmesh流量查询</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cli/navmesh.html#show-navmesh">19.1. show navmesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/navmesh.html#id1">19.1.1. 命令功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/navmesh.html#id2">19.1.2. 命令格式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/navmesh.html#id3">19.1.3. 参数说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/navmesh.html#id4">19.1.4. 命令模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/navmesh.html#id5">19.1.5. 使用指南</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/navmesh.html#id6">19.1.6. 配置举例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ConnetOS</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">配置指南</a> &raquo;</li>
+        
+          <li><a href="index.html">7. 流量策略</a> &raquo;</li>
+        
+      <li>7.2. QoS配置</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/cfg/qos/qos_configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qos">
+<h1>7.2. QoS配置<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>7.2.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>7.2.1.1. QoS概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>随着网络技术的发展，互联网中的业务种类越来越多。传统的E-mail、WWW、文件传输等业务，新兴的多媒体游戏、电话会议、在线视频、网络直播等业务，对网络带宽、时延、丢包率等的要求各不相同。同时随着网络的普及，流量激增，更容易产生网络拥塞、增大转发时延，甚至会产生丢包，导致业务质量下降甚至不可用。如何针对不同的业务提供不同层次的服务，同时解决网络拥塞提供更完善的服务迫在眉睫。</p>
+<p>QoS技术就是在这种背景下发展起来的。QoS是Quality of Service（服务质量）的简称，根据用户的要求分配和调度资源，对不同的数据流提供不同的服务质量：对实时性强且重要的数据报优先处理；对于实时性不强的普通数据报文，提供较低的处理优先级，网络拥塞时甚至丢弃。</p>
+<p>QoS的应用可以通过保证传输的带宽，降低转发时延、丢包率和时延抖动等措施，来提高网络服务质量。</p>
+</div>
+<div class="section" id="id3">
+<h3>7.2.1.2. QoS服务模型<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>网络应用是端到端的通信，两个主机进行通信，中间可能要跨越多个物理网络，经过多台设备，要实现端到端的QoS，就必须从全局考虑。QoS服务模型就是研究采用什么模式实现全局的服务质量保证。</p>
+<p>目前QoS有三种服务模型：</p>
+<blockquote>
+<div><ul class="simple">
+<li>Best-Effort Service：尽力而为服务模型</li>
+<li>Integrated Service：综合服务模型，简称Int-Serv</li>
+<li>Differentiated Service：差分服务模型，简称Diff-Serv</li>
+</ul>
+</div></blockquote>
+<div class="section" id="best-effort">
+<h4>7.2.1.2.1. Best-Effort服务模型<a class="headerlink" href="#best-effort" title="Permalink to this headline">¶</a></h4>
+<p>Best-Effort是最简单的QoS服务模型。应用程序可以在任何时候，发出任意数量的报文，而不需要通知网络。而网络则尽最大的可能来发送报文，但对时延、可靠性等性能不提供任何保证。</p>
+</div>
+<div class="section" id="id4">
+<h4>7.2.1.2.2. Best-Effort服务模型<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Int-Serv模型是指应用程序在发送报文前，首先通过信令向网络描述流量参数，申请带宽。在确定网络已经为其预留资源后，再发送报文。Int-Serv模型下，可以保证报文的丢包率、延迟等要求。</p>
+</div>
+<div class="section" id="diff-serv">
+<h4>7.2.1.2.3. Diff-Serv服务模型<a class="headerlink" href="#diff-serv" title="Permalink to this headline">¶</a></h4>
+<p>Diff-Serv是一种基于报文流的QoS模型。在Diff-Serv模型中，应用程序发出报文前，通过设置报文的QoS参数信息，来告知网络节点它的QoS需求。网络根据每个报文流指定的QoS参数信息来提供差分服务，即对报文的服务等级划分，有差别地进行流量控制和转发，提供端到端的QoS保证。</p>
+<p>目前，应用最广泛的是Diff-Serv模型。ConnetOS的QoS功能就是基于Diff-Serv模型实现的。</p>
+</div>
+</div>
+<div class="section" id="diff-servqos">
+<h3>7.2.1.3. 基于Diff-Serv模型的QoS实现<a class="headerlink" href="#diff-servqos" title="Permalink to this headline">¶</a></h3>
+<p>在Diff-Serv模型中，进入网络中的流量被分成不同的类，同一类的流量在网络中被聚合起来统一管理发送，保证相同的QoS服务指标。不同的类享受不同的处理，尤其是当网络出现拥塞时不同的类会享受不同的优先处理，从而得到不同的丢弃率、时延以及时延抖动。</p>
+<p>在Diff-Serv模型中，常用到的技术包括：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">流分类和流标记（Classification and Marking）</p>
+<p>将数据包分为不同的类别，并设置为不同的优先级。</p>
+<ul class="simple">
+<li>流分类：采用一定的规则识别符合某类特征的报文，将数据包分为不同的类别（并不修改原来的数据包优先级信息）。</li>
+<li>流标记：将数据包设置为不同的优先级（会修改原来的数据包优先级信息），通过优先级映射和重标记优先级实现。</li>
+</ul>
+</li>
+<li><p class="first">流量监管和流量整形（Policing and Shaping）和接口限速</p>
+<p>将业务流量限制在特定的带宽。当业务流量超过额定带宽时，超过的流量将被丢弃或缓存。</p>
+<ul class="simple">
+<li>将超过的流量丢弃的技术称为流量监管。</li>
+<li>将超过的流量缓存的技术称为流量整形（流量整形效果需视其缓存的大小而定）。</li>
+</ul>
+</li>
+<li><p class="first">拥塞管理（Congestion management）</p>
+<p>在网络发生拥塞时，使用合适的队列调度机制，优先保证某种报文的QoS服务指标。</p>
+</li>
+<li><p class="first">拥塞避免（Congestion avoidance）</p>
+<p>监督网络资源的使用情况，当发现拥塞有加剧的趋势时采取主动丢弃报文的策略，通过调整流量来解除网络的过载。通常作用在接口出方向。</p>
+</li>
+</ul>
+</div></blockquote>
+<p>流分类和流标记是实现差分服务的前提和基础；流量监管、流量整形、拥塞管理和拥塞避免从不同方面对网络流量及其分配的资源实施控制，是提供差分服务的具体体现。</p>
+<p>QoS技术在网络中的应用位置。</p>
+<img alt="../../_images/qos_config.jpg" src="../../_images/qos_config.jpg" />
+</div>
+</div>
+<div class="section" id="connetosqos">
+<h2>7.2.2. ConnetOS支持的QoS功能<a class="headerlink" href="#connetosqos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="qosconnetos">
+<h3>7.2.2.1. QoS在ConnetOS中的实现流程<a class="headerlink" href="#qosconnetos" title="Permalink to this headline">¶</a></h3>
+<p>ConnetOS在入接口完成流量分类和标记工作，在出接口进行队列调度来分配资源和和控制流量。</p>
+<p>具体实现过程如下：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>（可选）在入接口对报文进行速度限制，保证网络流量在一个合理的范围内。</li>
+<li>在入接口将报文携带的优先级或者接口优先级映射为内部优先级，按照优先级映射表确定报文进入哪个转发队列。</li>
+<li>根据队列调度算法发送各个转发队列中的报文。</li>
+<li>（可选）根据网络流量情况，对出接口的报文进行限速。</li>
+</ol>
+</div></blockquote>
+<p>QoS处理流程</p>
+<img alt="../../_images/qos_process.jpg" src="../../_images/qos_process.jpg" />
+<p>缺省情况下，ConnetOS上的QoS功能是关闭的，即不区分优先级，设备对所有的报文等同处理。</p>
+</div>
+<div class="section" id="id5">
+<h3>7.2.2.2. 接口限速<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>接口限速，对通过接口的全部报文流量速率进行限制，以保证带宽不超过规定大小。入方向与出方向的接口限速属于并列关系，用户可以根据需要同时配置，也可以单独配置。</p>
+<p>如果不限制用户发送的流量，大量用户不断突发的数据会使网络更拥挤。通过配置入方向的接口限速，可以将通过某个接口进入网络的流量限制在一个合理的范围内。</p>
+<p>若需要对接口出方向所有流量进行控制时，可以配置出方向的接口限速。</p>
+</div>
+<div class="section" id="id6">
+<h3>7.2.2.3. 优先级映射<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>优先级用于标识报文传输时的优先程度，可以分为：</p>
+<blockquote>
+<div><ul class="simple">
+<li>报文携带优先级：根据公有标准和协议生成，是报文自身的优先等级。</li>
+<li>设备调度优先级：又称为本地/内部优先级，是设备内部区分报文服务等级的优先级。</li>
+</ul>
+</div></blockquote>
+<p>报文进入设备后，设备会根据相应规则选择报文的内部优先级，为队列调度和拥塞控制服务。</p>
+<p>优先级映射用来实现报文携带优先级与内部优先级之间的转换。对于进入设备的报文，设备将报文携带的优先级或者接口优先级映射为内部优先级，然后根据内部优先级与队列之间的映射关系确定报文进入的队列，并可以根据配置修改报文发送时所携带的优先级，以便其他设备根据报文的优先级提供相应的QoS服务。</p>
+<p>用户可以在不同的网络中使用不同的优先级字段，例如：VLAN网络中使用802.1p，IP网络中使用DSCP等。当报文经过不同网络时，为了保持报文的优先级，需要在连接不同网络的设备上配置优先级字段的映射关系。当设备接收报文时，优先级字段（如802.1p、DSCP）被映射为内部优先级；设备发出报文时，将内部优先级映射为某种外部优先级字段。
+设备提供了优先级映射表，分别对应相应的优先级映射关系。</p>
+<p>通常情况下，可以通过查找缺省优先级映射表来为报文分配相应的优先级。如果缺省优先级映射表无法满足用户需求，可以根据实际情况对映射表进行修改。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="37%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">入口报文携带dscp</th>
+<th class="head">入口报文携带8021.p</th>
+<th class="head">出口队列</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0～7</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>8～15</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>16～23</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>24～31</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>32～39</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td>40～47</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>48～55</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>58～63</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h3>7.2.2.4. 流分类<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>流分类就是根据报文的优先级字段（如802.1p、DSCP），对报文进行分类，以识别出具有不同优先级或服务等级特征的流量，实现外部优先级和内部优先级之间的映射。</p>
+<p>流分类过程实际上就是信任接口的上行报文携带的优先级标记，并进行优先级映射（即根据优先级映射表，将上行报文携带的QoS优先级统一映射到设备内部的服务等级。</p>
+<p><strong>CoS</strong>：Class&nbsp;of&nbsp;Service&nbsp;服务级别，L2&nbsp;802.1Q帧携带的分类信息，在帧头的Tag字段中占3bits，称为用户优先级，范围为0～7。</p>
+<p>CoS优先级</p>
+<img alt="../../_images/cos_priority.png" src="../../_images/cos_priority.png" />
+<p><strong>ToS</strong>：Type&nbsp;of&nbsp;Service&nbsp;服务类型，L3&nbsp;IPv4包头携带的一个字节的字段，标记IP包的服务类型， ToS字段内可以是IP&nbsp;Precedence值，也可以是DSCP值。</p>
+<p>ToS优先级</p>
+<img alt="../../_images/tos_priority.png" src="../../_images/tos_priority.png" />
+<p><strong>IP&nbsp;Precedence</strong>： IP&nbsp;优先级， L3&nbsp;IP包头携带的分类信息，共占3bits，范围为0～7。</p>
+<p><strong>DSCP</strong>： Differentiated&nbsp;Services&nbsp;Code&nbsp;Point&nbsp;差别化业务编码点， L3&nbsp;IP包头携带的分类信息，共占6bits，范围为0～63，向下兼容IP&nbsp;Precedence。</p>
+</div>
+<div class="section" id="id8">
+<h3>7.2.2.5. 流标记<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>为保证被分类报文对应的DSCP值能够传递给网络上的下一跳设备，需要通过流标记动作为报文写入QoS信息，或使用Trust方式直接保留报文中QoS信息。</p>
+<p>缺省情况下，流标记总是将对应的DSCP值转化成QoS信息，然后写入到报文CoS字段（对于非IP 报文）、DSCP字段或者IP-precedence 字段（对于IP 报文）中。</p>
+<div class="section" id="id9">
+<h4>7.2.2.5.1. 接口信任模式<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>下游设备可以选择使用上游设备的分类结果，也可以按照自己的分类标准对报文重新进行分类。如果选择使用上游设备的分类结果，则表示该设备信任上游设备的分类结果， 即信任（trust）从连接上游设备的接口接收的报文所携带的QoS标记。因此，设备在实现QoS优先级映射时，可以选择信任接口的上行报文携带的优先级标记（如DSCP、IP Precedence、802.1p），这种模式就称为接口信任模式。</p>
+<p>入接口上，既可以设置流分类，也可以配置为信任接口。</p>
+<p>配置成信任接口，信任报文cos中携带的标记，根据code-point map映射到出口队列。</p>
+<p>目前，ConnetOS支持的如下的信任模式：</p>
+<blockquote>
+<div><ul class="simple">
+<li>dscp：IP报文按照报文dscp以及配置的code-point映射到出口队列。非IP报文按照“trust &nbsp;ieee-802.1”方式处理。</li>
+<li>ieee-802.1：tagged 根据报文的cos以及配置的code-point map映射到出口队列。untagged 根据接口默认cos以及配置的code-point map映射到出口队列。</li>
+<li>inet-precedence：IP报文按照报文ip-pre以及配置的code-point映射到出口队列。非IP报文按照“trust &nbsp;ieee-802.1”方式处理。</li>
+<li>trust port：任何报文都按照接口默认cos以及配置的code-point map映射到出口队列。</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>7.2.2.6. 队列<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Queueing即队列，负责将流量送往接口的某个转发队列中，送往接口的不同转发队列的报文将获得不同等级的服务。ConnetOS上，每个接口出方向支持8个队列，以队列索引号进行标识，分别为：0、1、2、3、4、5、6、7。编号越大，优先级越高。</p>
+<p>ConnetOS根据本地优先级和队列之间的映射关系，自动将分类后的报文流送入各个队列，然后根据配置的队列调度算法进行调度。通过绑定流分类和转发队列，来确定不同的流量被送往不同的转发队列。</p>
+<p>队列指的是在缓存中对报文进行排序的逻辑。当流量的速率超过接口带宽或超过为该流量设置的带宽时，报文就以队列的形式暂存在缓存中。报文离开队列的时间、顺序，以及各个队列之间报文离开的相互关系则由队列调度算法决定。</p>
+</div>
+<div class="section" id="id11">
+<h3>7.2.2.7. 队列调度技术<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>拥塞管理是通过调整报文的转发次序，来满足时延敏感业务高QoS服务的一种流量控制机制。对于拥塞管理，一般采用队列技术来处理。</p>
+<p>ConnetOS支持以下的队列调度算法：</p>
+<blockquote>
+<div><ul class="simple">
+<li>SP（Strict Priority）：严格优先级调度</li>
+<li>WDRR（Weighted Deficit Round Robin）：带赤字的加权轮询调度</li>
+<li>SP+WDRR</li>
+</ul>
+</div></blockquote>
+<div class="section" id="sp">
+<h4>7.2.2.7.1. SP<a class="headerlink" href="#sp" title="Permalink to this headline">¶</a></h4>
+<p>SP调度就是严格按照队列优先级的高低顺序进行调度。只有高优先级队列中的报文全部调度完毕后，低优先级队列才有调度机会。在SP调度中，加权值为0。</p>
+<p>在报文出队列的时候，首先让高优先队列中的报文出队并发送，直到高优先队列中的报文发送完；然后发送低优先队列中的报文。在调度低优先级队列时，如果高优先级队列又有报文到来，则会优先调度高优先级队列。</p>
+<p>SP调度的缺点是：拥塞发生时，如果高优先级队列中长时间有报文存在，那么低优先级队列中的报文就会一直得不到调度机会。</p>
+</div>
+<div class="section" id="wdrr">
+<h4>7.2.2.7.2. WDRR<a class="headerlink" href="#wdrr" title="Permalink to this headline">¶</a></h4>
+<p>WDRR是以报文字节数为权重的调度算法，可以避免队列的平均报文长度变化时，用户无法通过WRR获取想要带宽的问题。当为某一个队列分配的权重值低于0时，该队列的权重就变为赤字，同时也影响下一次调度对队列赋予的权重。即该队列的新的权重会减去前一次产生的赤字，这样可以避免由于报文长度不等而产生的非预期的调度。</p>
+<p>WDRR为每个队列设置一个计数器Deficit，Deficit初始化为一次调度允许的最大字节数，一般为Weight*MTU。每次轮询到一个队列时，该队列输出一个报文且计数器Deficit减去报文长度，如果报文长度超过了队列的调度能力，WDRR调度允许Deficit出现负值，以保证长报文也能够得到调度，但下次轮循调度时该队列将不会被调度。上一轮调度后的Deficit值作为下一轮调度的Deficit。直到计数器为0或负数时停止调度该队列，但继续调度其他计数器不为0的队列。当所有队列的计数器都为0或负数时，所有计数器的Deficit都加上Weight*MTU，开始新一轮调度。</p>
+<p>WDRR调度避免了采用SP调度时低优先级队列中的报文可能长时间得不到服务的缺点，也避免了各队列报文长度不等或变化较大时，WRR调度不能按配置比例分配带宽资源的缺点。</p>
+<p>但是，WDRR调度也具有低延时需求业务（如语音）得不到及时调度的缺点。</p>
+</div>
+<div class="section" id="sp-wdrr">
+<h4>7.2.2.7.3. SP+WDRR<a class="headerlink" href="#sp-wdrr" title="Permalink to this headline">¶</a></h4>
+<p>SP调度、WDRR调度各有优缺点。单纯采用SP调度时，低优先级队列中的报文长期得不到带宽，而单纯采用WDRR调度时低延时需求业务得不到优先调度。</p>
+<p>SP+WDRR调度是指在队列调度中选择SP和WDRR算法共同参与运算的方法，即在高优先级队列的所有报文被调度完成后，才根据选择WDRR算法对其他队列进行调度。这样既保证最高优先级的队列能得到优先调度，又避免了其他低优先级队列长时间得不到调度的问题。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>7.2.3. 配置QoS功能<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>7.2.3.1. 定义流分类<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">进入配置模式。</p>
+<p>ConnetOS&gt; <strong>configure</strong></p>
+</li>
+<li><p class="first">定义流分类模版，用于对进入设备的流量进行分类。</p>
+<p>ConnetOS支持定义任意数量的流分类模版，但是必须绑定到接口才会生效。</p>
+<p>ConnetOS# <strong>set class-of-service classifier</strong> <em>classifier-name</em></p>
+</li>
+<li><p class="first">配置指定流分类模板的优先级信任模式。</p>
+<p>ConnetOS# <strong>set class-of-service classifier</strong> <em>classifier-name</em> <strong>trust-mode</strong> { <strong>dscp</strong> | <strong>ieee-802.1</strong> | <strong>trust-port</strong> }</p>
+</li>
+<li><p class="first">(可选）配置接口优先级。只有当优先级映射模式为信任接口时，才需要配置接口优先级。</p>
+<p>ConnetOS# <strong>set interface gigabit-ethernet</strong> <em>interface-number</em> <strong>cos priority</strong> <em>priority-value</em></p>
+<p>配置接口优先级后，从该接口流入的流量将以接口优先级查找优先级映射表得到出口队列。</p>
+</li>
+<li><p class="first">配置转发队列，设置指定流分类在出接口进行报文转发时的转发队列。</p>
+<p>ConnetOS# <strong>set class-of-service forwarding-class</strong> <em>forwarding-class</em> <strong>queue-num</strong> <em>queue-numer</em></p>
+<p>ConnetOS支持8个队列（0～7），数字越大，优先级越高。</p>
+</li>
+<li><p class="first">配置指定流分类模版的优先级映射表。</p>
+<p>ConnetOS# <strong>set class-of-service classifier</strong> <em>classifier-name</em> <strong>forwarding-class</strong> <em>forwarding-class</em> [ <strong>code-point</strong> <em>code-point</em> ]</p>
+<p><strong>code-point</strong> 用于标识优先级，不同的信任模式下标识不同的优先级。比如：<strong>trust-mode</strong> 为dscp时，<strong>code-point</strong> 表示DSCP值。</p>
+</li>
+<li><p class="first">将流分类模版绑定到报文的入接口。</p>
+<p>ConnetOS# <strong>set class-of-service interface</strong> <em>interface-name</em> <strong>classifie</strong> <em>classifier-name</em></p>
+<p>流分类模版需要绑定到报文的入接口，这样报文才会在出接口按照优先级到队列映射表映射到相应的出口队列。</p>
+</li>
+<li><p class="first">提交配置</p>
+<p>ConnetOS# <strong>commit</strong></p>
+</li>
+</ol>
+</div>
+<div class="section" id="id14">
+<h3>7.2.3.2. 配置拥塞管理<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>配置拥塞管理后，当网络发生拥塞时，设备将按照指定的队列调度算法决定转发报文时的处理顺序，从而达到高优先级报文被先调度的目的。</p>
+<p>拥塞管理需要配置在报文的出接口。</p>
+<ol class="arabic">
+<li><p class="first">进入配置模式。</p>
+<p>ConnetOS&gt; <strong>configure</strong></p>
+</li>
+<li><p class="first">配置指定接口的队列调度算法</p>
+<p>ConnetOS# <strong>set interface gigabit-ethernet</strong> <em>interface-number</em> <strong>cos schedule mode</strong> { <strong>sp</strong> | <strong>sp+wdrr</strong> | <strong>wdrr</strong> }</p>
+<p>如果不配置调度算法，队列将按照设备默认调度算法（WDRR调度）进行调度。</p>
+</li>
+<li><p class="first">配置队列的调度权重。</p>
+<p>ConnetOS# <strong>set interface gigabit-ethernet</strong> <em>interface-number</em> <strong>cos schedule queue</strong> <em>queue-number</em> [ <strong>weight</strong> <em>weight-value</em> ]</p>
+<p>如果不配置权重，权重值就是0。在SP+WDRR调度中，执行SP算法的队列，都不需要配置权重。</p>
+</li>
+<li><p class="first">提交配置</p>
+<p>ConnetOS# <strong>commit</strong></p>
+</li>
+</ol>
+</div>
+<div class="section" id="id15">
+<h3>7.2.3.3. 检查配置结果<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p># 查看QoS的相关配置信息:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">ConnetOS</span><span class="c"># show class-of-service</span>
+<span class="n">Waiting</span> <span class="k">for</span> <span class="n">building</span> <span class="n">configuration</span><span class="o">.</span>
+   <span class="n">forwarding</span><span class="o">-</span><span class="k">class</span> <span class="nc">fd1</span> <span class="p">{</span>
+       <span class="n">queue</span><span class="o">-</span><span class="n">num</span><span class="p">:</span> <span class="mi">1</span>
+   <span class="p">}</span>
+   <span class="n">classifier</span> <span class="n">c1</span> <span class="p">{</span>
+       <span class="n">trust</span><span class="o">-</span><span class="n">mode</span><span class="p">:</span> <span class="s">&quot;trust-port&quot;</span>
+       <span class="n">forwarding</span><span class="o">-</span><span class="k">class</span> <span class="nc">fd1</span> <span class="p">{</span>
+            <span class="n">code</span><span class="o">-</span><span class="n">point</span> <span class="mi">7</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">interface</span> <span class="s">&quot;te-1/1/13&quot;</span> <span class="p">{</span>
+        <span class="n">classifier</span><span class="p">:</span> <span class="s">&quot;c1&quot;</span>
+</pre></div>
+</div>
+<p># 查看报文入接口的QoS相关配置信息:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">ConnetOS</span><span class="c"># show interface gigabit-ethernet te-1/1/13</span>
+<span class="n">Waiting</span> <span class="k">for</span> <span class="n">building</span> <span class="n">configuration</span><span class="o">.</span>
+    <span class="n">cos</span> <span class="p">{</span>
+        <span class="n">priority</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p># 查看报文出接口的QoS相关配置信息:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">ConnetOS</span><span class="c"># show interface gigabit-ethernet te-1/1/15</span>
+<span class="n">Waiting</span> <span class="k">for</span> <span class="n">building</span> <span class="n">configuration</span><span class="o">.</span>
+   <span class="n">ether</span><span class="o">-</span><span class="n">options</span> <span class="p">{</span>
+   <span class="p">}</span>
+   <span class="n">cos</span><span class="o">-</span><span class="n">schedule</span> <span class="p">{</span>
+       <span class="n">mode</span><span class="p">:</span> <span class="s">&quot;sp+wdrr&quot;</span>
+       <span class="n">queue</span> <span class="mi">1</span> <span class="p">{</span>
+           <span class="n">weight</span><span class="p">:</span> <span class="mi">30</span>
+       <span class="p">}</span>
+       <span class="n">queue</span> <span class="mi">2</span> <span class="p">{</span>
+           <span class="n">weight</span><span class="p">:</span> <span class="mi">50</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../iss/index.html" class="btn btn-neutral float-right" title="8. 高可靠-ISS堆叠" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="firewall_configuration.html" class="btn btn-neutral" title="7.1. firewall配置" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YUNQI Tech.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
