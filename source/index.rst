@@ -43,6 +43,7 @@ ConnetOS具有如下特点：
    software_install/index
    cfg/index
    cli/index
-   
+   faq/index
+   solution/index
 
 
