@@ -534,3 +534,64 @@ set interface gigabit-ethernet storm-control
 
  ConnetOS# set interface gigabit-ethernet te-1/1/1 storm-control broadcast kilobits 10000000
 
+clear ethernet-switching table
+------------------------------------------------
+
+命令功能
++++++++++++++++
+**clear ethernet-switching table** 命令用来清除以太网交换的信息。
+
+命令格式
++++++++++++++++
+**clear ethernet-switching table** { *interface-name* | **tunnel-ethernet** *tunnel-interface* }
+
+参数说明
++++++++++++++++
+*interface-name*：接口名称。
+
+*tunnel-interface*：tunnel接口名称。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 清除接口te-1/1/1的信息::
+
+ ConnetOS> clear ethernet-switching table te-1/1/1
+
+ clear interface statistics
+------------------------------------------------
+
+命令功能
++++++++++++++++
+** clear interface statistics** 命令用来清除接口的统计信息。
+
+命令格式
++++++++++++++++
+** clear interface statistics** { *interface-name* | **tunnel-ethernet** *tunnel-interface* }
+
+参数说明
++++++++++++++++
+*interface-name*：接口名称。
+
+*tunnel-interface*：tunnel接口名称。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 清除接口te-1/1/1的统计信息::
+
+ ConnetOS>  clear interface statistics te-1/1/1

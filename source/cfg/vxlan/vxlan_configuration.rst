@@ -201,7 +201,7 @@ BUM流量包括组播、广播和未知单播流量。
 
 头端复制方式转发示意图
 
-.. iamge:: vxlan_header_duplicate.png
+.. image:: vxlan_header_duplicate.png
 
 如上图所示，头端复制方式的BUM流量转发过程为：
 

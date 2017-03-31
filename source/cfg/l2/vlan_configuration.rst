@@ -57,55 +57,54 @@ ConnetOS除了可以设置接口允许通过的VLAN，还可以设置接口的�
 
 配置VLAN的基本功能
 ---------------------------------------
-
 #. 进入配置模式。
 
-    ConnetOS> **configure**
+   ConnetOS> **configure**
 
 #. 创建VLAN。
 	
-	ConnetOS# **set vlans vlan-id** *vlan-id*
+	 ConnetOS# **set vlans vlan-id** *vlan-id*
 
 #. （可选）配置VLAN的名称。
 
-	ConnetOS# **set vlans vlan-id** *vlan-id* **vlan-name** *vlan-name*
+	 ConnetOS# **set vlans vlan-id** *vlan-id* **vlan-name** *vlan-name*
 
 #. （可选）为指定VLAN配置描述信息
 	
-	ConnetOS# **set vlans vlan-id** *vlan-id* **description** *description*
+	 ConnetOS# **set vlans vlan-id** *vlan-id* **description** *description*
 
 #. 提交配置。
 	
-	ConnetOS# **commit**
+	 ConnetOS# **commit**
 
 配置基于接口的VLAN接口
 ---------------------------------------
 
 #. 进入配置模式。
 	
-	ConnetOS> **configure**
+	 ConnetOS> **configure**
 
 #. 配置接口类型。
 	
-	ConnetOS# **set interface gigabit-ethernet** *interface-name* **family ethernet-switching port-mode** { **access** | **trunk** }
+	 ConnetOS# **set interface gigabit-ethernet** *interface-name* **family ethernet-switching port-mode** { **access** | **trunk** }
 	
-	Access模式下，一个接口只能属于一个VLAN，即Native VLAN。
+	 Access模式下，一个接口只能属于一个VLAN，即Native VLAN。
 
-	trunk模式下，可以设置一个接口属于多个VLAN。多个VLAN包括缺省VLAN和其他VLAN。
+	 trunk模式下，可以设置一个接口属于多个VLAN。多个VLAN包括缺省VLAN和其他VLAN。
 
 #. 配置接口的缺省VLAN 。
     
-    ConnetOS# **set interface gigabit-ethernet** *interface-name* **family ethernet-switching native-vlan-id** *vlan-id*
+   ConnetOS# **set interface gigabit-ethernet** *interface-name* **family ethernet-switching native-vlan-id** *vlan-id*
 	
-	缺省情况下，所有接口的native-vlan-id都为1。
+	 缺省情况下，所有接口的native-vlan-id都为1。
 
 #. 将接口加入VLAN ID。
 	
-	ConnetOS# **set interface gigabit-ethernet** *interface-name* **family ethernet-switching vlan members** *vlan-member&<1-n>*
+	 ConnetOS# **set interface gigabit-ethernet** *interface-name* **family ethernet-switching vlan members** *vlan-member&<1-n>*
 
 #. 提交配置。
 	
-	ConnetOS# **commit**
+	 ConnetOS# **commit**
 
 查看VLAN
 ---------------------------------------

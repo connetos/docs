@@ -13,7 +13,7 @@
    macaddress_configuration
    vlan_configuration
    lldp_configuration
-   
+   lag_configuration
    
 
    
