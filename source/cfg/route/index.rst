@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-三层转发配置
+l3
 =====================================
 
 .. toctree::
@@ -11,7 +11,6 @@
    
    
    arp_configuration
-   dhcp-relay_configuration
    static_configuration
    ospf_configuration
 

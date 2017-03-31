@@ -29,7 +29,7 @@ set class-of-service
 +++++++++++++++
 # 设置QoS服务等级节点::
 
- ConnetOS# set class-of-service
+ConnetOS# set class-of-service
 
 set class-of-service classifier
 -------------------------------------------

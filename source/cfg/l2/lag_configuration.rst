@@ -118,7 +118,7 @@ LACP（Link Aggregation Control Protocol，链路聚合控制协议）基于IEEE
 
 #. 提交配置。
 
-   ConnetOS# **commit**
+ConnetOS# **commit**
 
 配置LACP汇聚接口
 ---------------------------------------
@@ -133,19 +133,19 @@ LACP（Link Aggregation Control Protocol，链路聚合控制协议）基于IEEE
 
 #. 设置最小选中接口。
 
-   ConnetOS# **set interface aggregate-ethernet** *interface-name* **ether-options min-selected-port** *port-number*
+   ConnetOS# set interface aggregate-ethernet interface-name ether-options min-selected-port port-number
    
    缺省情况下，最小选中接口数是1。
    
    当汇聚组中的活动接口数少于设置的最小数值时，ConnetOS会自动Down掉整个汇聚组。
 
-#. 配置汇聚接口组MTU
+＃. 配置汇聚接口组MTU
     
-   ConnetOS# **set interface aggregate-ethernet** *ae-number* **mtu** *mtu-value*
+    ConnetOS# set interface aggregate-ethernet ae-number mtu mtu-value
 
 #. 配置汇聚接口组的风暴控制
 
-   ConnetOS# **set interface aggregate-ethernet** *interface-name* **storm-control** { **broadcast** | **multicast** | **unicast** } **kilobits** *suppress*
+   ConnetOS# **set interface aggregate-ethernet** *interface-name* **storm-control** { **broadcast | multicast | unicast } kilobits suppress
 
 #. 提交配置
 

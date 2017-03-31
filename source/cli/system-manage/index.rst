@@ -12,9 +12,6 @@
    
    eth0
    login
-   aaa
-   systime
-   syslog
    rcc
    
 

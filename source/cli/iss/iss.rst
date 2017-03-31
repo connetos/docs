@@ -1,3 +1,6 @@
+堆叠命令
+====================================
+
 set member-id
 ------------------------------------
 命令功能
@@ -30,8 +33,8 @@ set member-id
 +++++++++++++++
 # 设置本设备为堆叠模式，并且member ID为1::
 
- ConnetOS> set member-id 1
- Are you sure you want to change the member-id(yes/no)?
+ConnetOS> set member-id 1
+Are you sure you want to change the member-id(yes/no)?
 
 set iss member mad enable
 -------------------------------------------

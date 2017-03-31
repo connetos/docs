@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-QoS命令
+用户登录管理配置
 =====================================
 
 .. toctree::
    :maxdepth: 2
    
-   qos
-   
+   login_configuration
+   rcc_configuration
+ 
 
    
-      
+   

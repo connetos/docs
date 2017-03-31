@@ -15,6 +15,7 @@ ConnetOS提供原生Linux服务器上的体验，开放的技术架构和运行�
    :maxdepth: 2
    
    rcc_configuration
+   restful_api_configuration
  
 
    

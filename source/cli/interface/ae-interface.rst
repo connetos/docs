@@ -458,32 +458,3 @@ storm-control** 命令用来删除配置的风暴控制功能，恢复到缺省�
 # 配置接口ae1的对广播报文的抑制速率为10000000Kbit/s::
 
  ConnetOS# set interface aggregate-ethernet ae1 storm-control broadcast kilobits 10000000
-
-clear lacp statistics
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**clear lacp statistics** 命令用来清除LACP的统计信息。
-
-命令格式
-+++++++++++++++
-**clear lacp statistics** [ [ **aggregate-ethernet** | **gigabit-ethernet** ] *interface-name* ]
-
-参数说明
-+++++++++++++++
-*interface-name*：接口名称。
-
-命令模式
-+++++++++++++++
-运维模式
-
-使用指南
-+++++++++++++++
-无
-
-配置举例
-+++++++++++++++
-# 清除设备上所有接口的LACP的统计信息::
-
- ConnetOS> clear lacp statistics 

@@ -95,10 +95,9 @@ ConnetOS CLI的命令行有如下特点：
 .. note::
  * 如果设备当前有其他用户正在登录，不允许锁定当前配置模式。例如::
 
-    ConnetOS> configure exclusive 
-    ERROR: Exclusive config mode requested， but there are already other configuration mode 
-    users: admin.
-    ConnetOS>
+   ConnetOS> configure exclusive 
+   ERROR: Exclusive config mode requested， but there are already other configuration mode users: admin.
+   ConnetOS>
 
  * 如果要解除锁定，直接退出配置模式即可。
 
