@@ -142,7 +142,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'configure.tex', u'Product Manual',
+    (master_doc, 'configure.tex', u'ConnetOS Manual',
      u'YUNQI Tech', 'manual'),
 ]
 
@@ -152,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'configure', u'Product Manual',
+    (master_doc, 'configure', u'ConnetOS Manual',
      [author], 1)
 ]
 
@@ -171,7 +171,7 @@ pdf_documents = [('index', u'rst2pdf', u'Sample rst2pdf doc', u'Your Name'),]
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'configure', u'Product Manual',
+    (master_doc, 'configure', u'ConnetOS Manual',
      author, 'configure', 'One line description of project.',
      'Miscellaneous'),
 ]
