@@ -19,14 +19,6 @@ ConnetOS具有如下特点：
  * 第三方软件：支持Puppet、Zabbix、Ansible等软件的管理；
 
 
-版本配套关系
-
-=============  ================  ============
-操作系统         软件版本           适用产品
-=============  ================  ============
-ConnetOS        General 2.0.0     C1020
-=============  ================  ============ 
-
 命令行格式约定
 
 ================  =================================================
@@ -46,15 +38,13 @@ ConnetOS        General 2.0.0     C1020
    :maxdepth: 1
    :glob:
 
+   quick_start/index
+   os_install/index
+   software_install/index
    cfg/index
    cli/index
-   
+   solution/index
+   faq/index
+   about_all/index
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`            
 

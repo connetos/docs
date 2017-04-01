@@ -11,7 +11,7 @@
  
    
    basic
-   
+   ssh-telnet
 
    
       

@@ -41,7 +41,7 @@ MAC 地址表项的生成方式有两种：
 
 #. 配置静态MAC地址表
 
-   ConnetOS# **set interface gigabit-ethernet** *interface-name* **static-ethernet-switching mac-address** *mac-address* **vlan** *vlan-id*
+   ConnetOS# **set interface gigabit-ethernet** *interface-name* **static-mac-address** *mac-address* **vlan** *vlan-id*
 
 #. 提交配置
 
@@ -67,10 +67,6 @@ MAC 地址表项的生成方式有两种：
 清空MAC地址表
 ---------------------------------------
 
-#. 进入配置模式。
-
-   ConnetOS> **configure**
-
 #. 清空指定接口MAC表。
 
    ConnetOS# **run clear ethernet-switching table** *interface-name*
@@ -79,6 +75,3 @@ MAC 地址表项的生成方式有两种：
 
    ConnetOS# **run clear ethernet-switching table all**
 
-#. 提交配置
-
-   ConnetOS# **commit**

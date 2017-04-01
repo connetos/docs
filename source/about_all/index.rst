@@ -3,15 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-流量策略命令
+关于我们
 =====================================
 
+
+
 .. toctree::
-   :maxdepth: 2
-   
-   qos
-   firewall
+   :maxdepth: 1
    
 
-   
-      
+   about_us

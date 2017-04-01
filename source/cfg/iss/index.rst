@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-高可靠-ISS堆叠
+ISS堆叠配置
 =====================================
 ISS（Intelligent Stacking System），是云启针对云业务环境研发的堆叠功能。具有如下特点：
 

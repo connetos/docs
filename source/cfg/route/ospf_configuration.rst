@@ -19,6 +19,7 @@ OSPF建立过程如下：
    * 本端设备通过接口向外发送Hello报文与对端设备建立邻居关系。
    * 两端设备进行主/从关系协商和DD报文交换。
    * 两端设备通过更新LSA完成链路数据库LSDB（Link State Database）的同步。
+   
    邻接关系建立成功。
 
 #. OSPF采用SPF算法计算路由。
@@ -55,7 +56,8 @@ Router ID通过两种方式获得：
 
  * 命令行手动配置。
  * 自动选取。
-  如果没有手动配置Router ID，ConnetOS会从当前接口的IP地址中自动选取一个最大值作为Router ID。 
+
+ 如果没有手动配置Router ID，ConnetOS会从当前接口的IP地址中自动选取一个最大值作为Router ID。 
 
 只有重新配置系统的Router ID或OSPF的Router ID，并且重新启动OSPF进程后，才会进行Router ID的重新选取。
 

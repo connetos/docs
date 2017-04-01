@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-流量策略
+流量策略配置
 =====================================
 ConnetOS支持如下的完善的流量策略，对用户流量进行管理。
 
@@ -23,9 +23,8 @@ ConnetOS支持如下的完善的流量策略，对用户流量进行管理。
 .. toctree::
    :maxdepth: 2
    
-   
-   firewall_configuration
    qos_configuration
+   firewall_configuration
 
    
       

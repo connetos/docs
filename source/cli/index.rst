@@ -13,23 +13,13 @@
 
    basic/index
    system-manage/index
-   aaa/index
-   syslog/index
-   arp/index
    interface/index
-   vlan/index
-   vxlan/index
-   static/index
-   ospf/index
-   load-balance/index
-   firewall/index
+   l2/index
+   l3/index
    qos/index
-   lldp/index
-   port-mirror/index
-   sflow/index
-   sdrop/index
+   flow-monitor/index
    iss/index
-   navmesh
+   vxlan/index
    
 
    
