@@ -114,41 +114,6 @@ set system syslog log-level
 
  ConnetOS# set system syslog log-level error
 
-show system syslog
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**show system syslog** 命令用来查看设备的日志信息。
-
-命令格式
-+++++++++++++++
-**show system syslog** [ **host** [ **server-ip** ] ] 
-
-参数说明
-+++++++++++++++
-**host**：查看日志服务器的地址。
-
-命令模式
-+++++++++++++++
-配置模式
-
-使用指南
-+++++++++++++++
-无。
-
-配置举例
-+++++++++++++++
-# 查看设备上的日志信息::
-
- ConnetOS# show system syslog
- Waiting for building configuration.
-    host {
-        server-ip 2.2.2.2
-    }
-    log-level: "error"
-    log-facility: 3
-
 syslog monitor
 -------------------------------------------
 

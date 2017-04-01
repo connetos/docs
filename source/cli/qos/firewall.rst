@@ -454,7 +454,7 @@ set firewall forwarder matching term
 
  ConnetOS# set firewall forwarder fd1 matching term term1
 
-show firewall forwarder（运维模式）
+show firewall forwarder
 -------------------------------------------
 
 命令功能
@@ -471,7 +471,7 @@ show firewall forwarder（运维模式）
 
 命令模式
 +++++++++++++++
-配置模式
+运维模式
 
 使用指南
 +++++++++++++++
@@ -489,106 +489,7 @@ show firewall forwarder（运维模式）
  ======================== Policy Based Forwarding ====================
  Forwarder : f1
 
-show firewall forwarder（配置模式）
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**show firewall forwarder** 命令用来查看转发策略的配置信息。
-
-命令格式
-+++++++++++++++
-**show firewall forwarder** *forwarder-name* [ **action** { **classifying** | **mirroring** [ **interface** ] | **routing** [ **mode** | **nexthopv4 address** *ipv4-address* | **vlan-interface** *vlan-interface* ] | **switching** [ **interface** ] } | **input** [ **gigabit-ethernet** *ge-interface-name* | **vlan-interface** *vlan-interface* ] | **matching** [ **term** *term-name* ] ]
-
-参数说明
-+++++++++++++++
-*forwarder-name*：转发策略名称。
-
-*ipv4-address*：下一跳IP地址。
-
-*ge-interface-name*：GE接口名称。
-
-*vlan-interface*：VLAN接口。
-
-*term-name*：过滤规则组名称。
-
-命令模式
-+++++++++++++++
-配置模式
-
-使用指南
-+++++++++++++++
-必须先进行转发策略的设置，才能用show查看到相关配置。
-
-配置举例
-+++++++++++++++
-# 查看转发策略fd1的配置信息::
-
- ConnetOS# show firewall forwarder fd1
- Waiting for building configuration.
-    match-mode: "matched"
-    matching {
-        term t1
-    }
-    action {
-        routing {
-            mode: "load-balance"
-        }
-    }
-    input {
-        gigabit-ethernet "te-1/1/1"
-    }
-
-show firewall term（配置模式）
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**show firewall term** 命令用来查看过滤规则组的配置信息。
-
-命令格式
-+++++++++++++++
-**show firewall term** *term-name*\［ **cos value**\ *priority-value* | **dest-ipv4 network** *ipv4-network-address* | **dest-mac hwaddr** *mac-address* | **dscp value** *dscp-value* | **ether-type** { **name** { **arp** | **ipv4** | **rarp** } | **number** *ether-type-number* } | **l4-dest-port** { **name** { **bgp** | **bootpc** | **bootps** | **dhcp** | **domain** | **dns** | **finger** | **ftp** | **ftp-data** | **http** | **https** | **msdp** | **ntp** | **oob-ws-http** | **pop3** | **radius** | **rip** | **smtp** | **snmp** | **telnet** | **tftp** } | **number** *dest-port-number* | **range** *port-range* } | **l4- source-port** { **name** { **bgpv | **bootpc** | **bootps** | **dhcp** | **domain** | **finger** | **ftp** | **ftp-data** | **http** | **https** | **msdp** | **ntp** | **oob-ws-http** | **pop3** | **radius** | **rip** | **smtp** | **snmp** | **telnet** | **tftp** } | **number** *source-number* | **range** *port-range* } | **protocol** { **name** { **ah** | **dstopts** | **egp** | **esp** | **fragment** | **gre** | **hop-by-hop** | **icmp** | **igmp** | **ipip** | **no-next-header** | **ospf** | **pim** | **routing** | **rsvp** | **sctp** | **tcp** | **udp** } | **number** *protocol-number* } | **source-ipv4 network** *ipv4-network-address* | **source-mac hwaddr** *mac-address* | **vlan number** *vlan-id* ］
-
-参数说明
-+++++++++++++++
-*priority-value*：CoS优先级。
-
-*ipv4-network-address*：目的IPv4地址。
-
-*mac-address*：目的MAC地址。
-
-*dscp-value*：DSCP值。
-
-*ether-type-number*：以太类型编号。
-
-*dest-port-number*：目的端口编号。
-
-*port-range*：目的端口范围。
-
-*protocol-number*：协议编号。
-
-*vlan-id*：VLAN ID。
-
-命令模式
-+++++++++++++++
-配置模式
-
-使用指南
-+++++++++++++++
-使用本命令进行查看时，只能看到已经配置了的term规则信息。
-
-配置举例
-+++++++++++++++
-# 查看term1的配置信息::
-
- ConnetOS# show firewall term term1
- Waiting for building configuration.
-    protocol {
-        name gre
-    }
-
-show firewall filter（运维模式）
+show firewall filter
 -------------------------------------------
 
 命令功能
@@ -629,47 +530,6 @@ show firewall filter（运维模式）
          Match-condition :
              dscp :                    value 2
      Input interface     : te-1/1/10
-
-show firewall filter（配置模式）
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**show firewall filter** 命令用来查看过滤策略的配置信息。
-
-命令格式
-+++++++++++++++
-**show firewall filter** *filter-name* [ { **input** | **output** } [ [ **gigabit-ethernet** | **vlan-interface** ] *interface-name* ] | **matching term** *term-name* ]
-
-参数说明
-+++++++++++++++
-*filter-name*：已经配置的过滤策略名称。
-
-*interface-name*：应用过滤策略的接口名称。
-
-*term-name*：过滤规则组名称。
-
-命令模式
-+++++++++++++++
-配置模式
-
-使用指南
-+++++++++++++++
-必须先进行过滤策略的设置，才能用show查看到相关配置。
-
-配置举例
-+++++++++++++++
-# 对符合过滤规则组的报文，转发时进行负载分担转发::
-
- ConnetOS# show firewall filter f1
- Waiting for building configuration.
-    term t1 {
-        action: "discard"
-    }
-    input {
-        gigabit-ethernet "te-1/1/1"
-        gigabit-ethernet "te-1/1/40"
-    }
 
 clear firewall
 -------------------------------------------

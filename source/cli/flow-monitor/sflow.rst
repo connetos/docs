@@ -358,7 +358,7 @@ show sflow
 
 配置举例
 +++++++++++++++
-# 查看全局的sFlow配置信息::
+# 查看全局的sFlow的信息::
 
  ConnetOS> show sflow
  Status   	Agent IP Address  Ingress Sample Rate  Egress Sample Rate  Polling Interval  Header Length
