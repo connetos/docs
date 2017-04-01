@@ -10,5 +10,7 @@
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
+   :glob:
 
    quick_start

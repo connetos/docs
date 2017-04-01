@@ -10,6 +10,7 @@
 
 .. toctree::
    :maxdepth: 1
-   
+   :numbered:
+   :glob:
 
    about_us
