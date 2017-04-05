@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'ConnetOS'
+project = u'ConnetOS Docs'
 copyright = u'2017, YUNQI Tech'
 author = u'YUNQI Tech'
 
@@ -54,7 +54,7 @@ author = u'YUNQI Tech'
 # built documents.
 #
 # The short X.Y version.
-version = u'1.0'
+version = u'不仅仅只是文库'
 # The full version, including alpha/beta/rc tags.
 release = u'2.1.2'
 
