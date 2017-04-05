@@ -991,6 +991,131 @@ set protocols ospf4 router-id
 
  ConnetOS# set protocols ospf4 router-id 1.1.1.1
 
+show ospf4 database
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show ospf4 database** 命令用来查看LSA数据库的信息。
+
+命令格式
++++++++++++++++
+**show ospf4 database** [ **area** *area-id* ] [ **asbrsummary** | **external** | **netsummary** | **network** | **nssa** | **router** ] [ **brief** | **detail** ]
+
+参数说明
++++++++++++++++
+*area-id*：OSPF区域ID。IP地址形式，取值为点分十进制。建议和某个接口的IP地址保持一致。0.0.0.0表示骨干区域。
+
+*asbrsummary**：查看Summary-LSA的信息。此信息为AS边界路由器上发送的聚合LSA。
+
+**external**：查看External-LSA的信息。
+
+**netsummary**：查看Summary-LSA的信息。此信息为网络上的聚合LSA。
+
+**network**：查看Network-LSA的信息。
+
+**nssa**：查看NSSA-LSA的信息。
+
+**router** ：查看Router-LSA的信息。
+
+**brief**：查看概要信息。
+
+**detail**：查看详细信息。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+如果不指定**brief**或**detail**，缺省情况下查看的是**brief**信息。
+
+配置举例
++++++++++++++++
+# 查看设备上的LSA数据库信息::
+
+ ConnetOS> show ospf4 database
+   OSPF link state database, Area 0.0.0.0
+ Type     ID                Adv Rtr          Seq         Age   Opt  Cksum   Len
+ -------  ----------------  ---------------  ----------  ----  ---  ------  ---
+ Router   *192.168.1.31     192.168.1.31     0x800001cd  439   0x2  0x9ccc  84
+ Router    192.168.1.22     192.168.1.22     0x80003992  434   0x2  0x7721  72
+
+show ospf4 interface
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show ospf4 interface** 命令用来查看OSPF接口的信息。
+
+命令格式
++++++++++++++++
+**show ospf4 interface** [ **brief** | **detail** ]
+
+参数说明
++++++++++++++++
+**brief**：查看概要信息。
+
+**detail**：查看详细信息。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 查看OSPF接口的信息::
+
+ ConnetOS> show ospf4 interface
+ Interface  State     Area             DR ID            BDR ID           Nbrs
+ ---------  --------  ---------------  ---------------  ---------------  ----
+ vlan100    DR        0.0.0.0          192.168.1.31     0.0.0.0          0
+ vlan20     PtToPt    0.0.0.0          0.0.0.0          0.0.0.0          1
+ vlan30     PtToPt    0.0.0.0          0.0.0.0          0.0.0.0          1
+
+show ospf4 neighbor
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show ospf4 neighbor** 命令用来查看OSPF的邻居信息。
+
+命令格式
++++++++++++++++
+**show ospf4 neighbor** [ *neighbor-name* | **all** ] [ **brief** | **detail** ]
+
+参数说明
++++++++++++++++
+*neighbor-name*：查看指定邻居信息。
+
+**all**：查看所有邻居信息。
+
+**brief**：查看概要信息。
+
+**detail**：查看详细信息。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 查看OSPF的邻居信息::
+
+ ConnetOS> show ospf4 neighbor
+ Address          Interface              State     Router ID        Pri    Dead
+ ---------------  ---------------------  --------  ---------------  -----  ----
+ 22.22.22.20      vlan20/vlan20          Full      192.168.1.22     128    31
+ 33.33.33.20      vlan30/vlan30          Full      192.168.1.22     128    30
+
 clear ospf4 database
 -------------------------------------------
 

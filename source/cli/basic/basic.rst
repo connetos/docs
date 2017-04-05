@@ -428,6 +428,43 @@ save
  ConnetOS# save running-to-startup
  Save done.
 
+show version
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show version** 命令用来查看当前版本信息。
+
+命令格式
++++++++++++++++
+**show version**
+
+参数说明
++++++++++++++++
+无
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 查看当前版本信息::
+
+ ConnetOS> show version
+ Copyright (C) 2015-2017 YUNQI TECH, Inc.
+ PN             : C1020
+ OS             : ConnetOS GENERAL
+ Version ID     : 2.1.2
+ Build Code     : r2179 (14P28)
+ Switch MAC     : 00:03:0f:64:da:5f
+ Management MAC : 00:03:0f:64:da:60
+ Release Time   : 2017-03-28 19:05:44
+
 status
 -------------------------------------------
 

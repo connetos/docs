@@ -24,3 +24,4 @@
 实时了解更多，扫一扫：
 
 .. image:: wechat.jpg
+    :width: 200px

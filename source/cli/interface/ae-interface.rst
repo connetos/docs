@@ -1,6 +1,37 @@
 汇聚接口命令
 ====================================
 
+clear lacp statistics
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**clear lacp statistics** 命令用来清除LACP的统计信息。
+
+命令格式
++++++++++++++++
+**clear lacp statistics** [ **aggregate-ethernet** *ae-number* | **gigabit-ethernet** *interface-name* ]
+
+参数说明
++++++++++++++++
+*ae-number*：清除指定汇聚接口的LACP信息。
+
+*interface-name*：清除指定GE接口的LACP信息。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 清除设备上所有接口的LACP的统计信息::
+
+ ConnetOS> clear lacp statistics 
+
 set interface aggregate-ethernet description
 -------------------------------------------------
 
@@ -459,20 +490,67 @@ storm-control** 命令用来删除配置的风暴控制功能，恢复到缺省�
 
  ConnetOS# set interface aggregate-ethernet ae1 storm-control broadcast kilobits 10000000
 
-clear lacp statistics
+show lacp internal
 -------------------------------------------
 
 命令功能
 +++++++++++++++
-**clear lacp statistics** 命令用来清除LACP的统计信息。
+**show lacp internal** 命令用来查看汇聚接口组的LACP状态。
 
 命令格式
 +++++++++++++++
-**clear lacp statistics** [ [ **aggregate-ethernet** | **gigabit-ethernet** ] *interface-name* ]
+**show lacp internal** [ **aggregate-ethernet** *ae-number* | **gigabit-ethernet** *interface-name* ]
 
 参数说明
 +++++++++++++++
-*interface-name*：接口名称。
+*ae-number*：查看指定汇聚接口的成员接口LACP状态。
+
+*interface-name*：查看指定GE接口的LACP状态。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 查看汇聚接口组的LACP状态::
+
+ ConnetOS> show lacp internal
+ Flags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation,
+	     D -- Synchronization, E -- Collecting, F -- Distributing,
+	     G -- Defaulted, H -- Expired
+ LACP System ID: 32768,00:03:0F:64:DA:5F
+ Aggregated interface: ae1
+ Port Number   Priority   Admin Key   Oper Key   Flag
+ -----------   --------   ---------   --------   -------------
+ te-1/1/33     32768      0x4F        0x4F       {ACG}
+ te-2/1/36     32768      0x4F        0x4F       {ACDEF}
+ Aggregated interface: ae2
+ Port Number   Priority   Admin Key   Oper Key   Flag
+ -----------   --------   ---------   --------   -------------
+ te-1/1/6      32768      0x50        0x50       {ACDEF}
+ te-2/1/6      32768      0x50        0x50       {ACDEF}
+
+show lacp neighbor
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show lacp neighbor** 命令用来清除LACP的统计信息。
+
+命令格式
++++++++++++++++
+**show lacp neighbor** [ **aggregate-ethernet** *ae-number* | **gigabit-ethernet** *interface-name* ]
+
+参数说明
++++++++++++++++
+*ae-number*：查看指定汇聚接口的LACP邻居。
+
+*interface-name*：查看指定GE接口的LACP邻居。
 
 命令模式
 +++++++++++++++
@@ -484,6 +562,61 @@ clear lacp statistics
 
 配置举例
 +++++++++++++++
-# 清除设备上所有接口的LACP的统计信息::
+# 查看LACP邻居::
 
- ConnetOS> clear lacp statistics 
+ ConnetOS> show lacp neighbor
+ Flags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation,
+         D -- Synchronization, E -- Collecting, F -- Distributing,
+         G -- Defaulted, H -- Expired
+ Aggregated interface: ae1
+ Port Number   Partner System ID         Partner Port Num   Port Priority   Admin Key   Oper Key   Flag
+ -----------   -----------------------   ----------------   -------------   ---------   --------   -----------
+ te-1/1/33     0,00:00:00:00:00:00       0                  0               0x00        0x00       {}
+ te-2/1/36     32768,2C:60:0C:84:61:49   28                 32768           0x00        0x46       {ACDEF}
+ Flags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation,
+         D -- Synchronization, E -- Collecting, F -- Distributing,
+         G -- Defaulted, H -- Expired
+ Aggregated interface: ae2
+ Port Number   Partner System ID         Partner Port Num   Port Priority   Admin Key   Oper Key   Flag
+ -----------   -----------------------   ----------------   -------------   ---------   --------   -----------
+ te-1/1/6      32768,2C:60:0C:84:61:49   4                  32768           0x00        0x45       {ACDEF}
+ te-2/1/6      32768,2C:60:0C:84:61:49   6                  32768           0x00        0x45       {ACDEF}
+
+show lacp statistics
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show lacp statistics** 命令用来查看LACP协议的状态。
+
+命令格式
++++++++++++++++
+**clear lacp statistics** [ **aggregate-ethernet** *ae-number* | **gigabit-ethernet** *interface-name* ]
+
+参数说明
++++++++++++++++
+*ae-number*：查看指定汇聚接口的LACP协议状态。
+
+*interface-name*：查看指定GE接口的LACP协议状态。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 查看LACP协议的状态::
+
+ ConnetOS> show lacp statistics
+ Port         LACP PDUs    LACP PDUs    Marker       Marker       Marker Resp   Marker Resp   LACP PDUs    LACP PDUs
+ Number       Sent         Received     Sent         Received     Sent          Received      Error        Dropped
+ ----------   ----------   ----------   ----------   ----------   -----------   -----------   ----------   ----------
+ te-1/1/33    16865        0            0            0            0             0             0            0
+ te-1/1/6     16869        16837        0            0            0             0             0            0
+ te-2/1/36    16865        16865        0            0            0             0             0            0
+ te-2/1/6     16865        16865        0            0            0             0             0            0
+

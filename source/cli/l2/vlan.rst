@@ -227,6 +227,46 @@ set vlan-interface interface dhcp-relay
 
  ConnetOS# set vlan-interface interface vlan100 dhcp-relay server-ip 1.1.1.1
 
+show vlan-interface
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show vlan-interface**
+
+命令格式
++++++++++++++++
+**show vlan-interface** [ *vlan-interface* ]
+
+参数说明
++++++++++++++++
+*vlan-interface*：接口名称。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 查看设备上的vlan接口信息::
+
+ ConnetOS> show vlan-interface
+ Interface  Status  VLAN ID  MTU    MAC                Address
+ ---------  ------  -------  -----  -----------------  ------------------
+ vlan5      Down    5        1500   00:03:0F:64:DA:5F  5.5.5.1/24
+ vlan7      Up      7        1500   00:03:0F:64:DA:5F  7.7.7.1/24
+ vlan9      Up      9        1500   00:03:0F:64:DA:5F  9.9.9.1/24
+ vlan20     Up      20       1500   00:03:0F:64:DA:5F  22.22.22.10/24
+ vlan30     Up      30       1500   00:03:0F:64:DA:5F  33.33.33.10/24
+ vlan100    Up      100      1500   00:03:0F:64:DA:5F  11.11.11.1/24
+ vlan444    Down    444      1500   00:03:0F:64:DA:5F
+ vlan555    Down    555      1500   00:03:0F:64:DA:5F
+ vlan666    Down    666      1500   00:03:0F:64:DA:5F
+
 clear vlan-interface statistics
 -------------------------------------------
 
