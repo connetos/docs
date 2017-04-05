@@ -8,17 +8,6 @@ Welcome to ConnetOS
 
 ConnetOS是云启科技公司开发的一款适用于现代数据中心网络的开放网络操作系统。ConnetOS基于标准Debian linux发行版系统，包含丰富的交换机二三层功能，支持强大的智能分析和诊断功能，以自动化和智能化见长，号称“最懂网络”的交换机软件。
 
-ConnetOS具有如下特点：
-
- * 两种界面：同时拥有Linux服务器和交换机命令行的操作体验；
- * 全开放、易扩展的软件架构：支持灵活的二次开发和定制开发。
- * 极简上线：自主研发的自动部署功能，提供高效零配置上线解决方案。
- * 丰富的管理界面：CLI/SNMP/Netconf/RCC。
- * 全API接口：支持所有CLI的远程接口调用（RCC）；
- * 命令行接口：原子性、事务性、自动回滚；
- * 第三方软件：支持Puppet、Zabbix、Ansible等软件的管理；
-
-
 
 
 .. toctree::
@@ -31,6 +20,8 @@ ConnetOS具有如下特点：
    cfg/index
    cli/index
    solution/index
+   app/index
+   one/index
    faq/index
    about_all/index
 
