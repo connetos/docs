@@ -10,6 +10,8 @@
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
+   :glob:
 
    software_install
    

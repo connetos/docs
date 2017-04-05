@@ -1,5 +1,6 @@
 镜像命令
 ==========================================
+
 set analyzer instance input
 -------------------------------------------
 
@@ -26,7 +27,6 @@ set analyzer instance input
 **ingress**：对入方向的流量进行镜像。
 
 *interface-name*：接口名称。此接口是用于做镜像的接口。
-
 
 命令模式
 +++++++++++++++
@@ -58,7 +58,6 @@ set analyzer instance output
 **set analyzer instance** *instance-name* **output** *interface-name*
 
 **delete analyzer instance** *instance-name* **output**
-
 
 参数说明
 +++++++++++++++

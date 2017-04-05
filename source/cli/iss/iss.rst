@@ -225,7 +225,7 @@ set interface gigabit-ethernet iss-port enable
 
  ConnetOS# set interface gigabit-ethernet te-1/1/13 iss-port enable true
 
-show iss（运维模式）
+show iss
 -------------------------------------------
 
 命令功能
@@ -257,43 +257,6 @@ show iss（运维模式）
  ---------   ------   --------   -----------------   -----------------   ----------------
  1           Master   1          00:03:0f:64:da:5f   00:03:0f:64:da:5f   BJ-YUNQI-C1020-31.Int
  2           Slave    1          00:03:0f:64:da:53   00:03:0f:64:da:5f   BJ-YUNQI-C1020-32.Int
-
-show iss（配置模式）
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**show iss** 命令用来查看ISS堆叠的配置信息。
-
-命令格式
-+++++++++++++++
-**show iss** [ **member** { **1** | **2** } ]
-
-参数说明
-+++++++++++++++
-**1**：member ID为1。
-
-**2**：member ID为2。
-
-命令模式
-+++++++++++++++
-配置模式
-
-使用指南
-+++++++++++++++
-无。
-
-配置举例
-+++++++++++++++
-# 查看ISS堆叠系统中对member ID为2的设备的配置::
-
-  ConnetOS 1# show iss member 2
-     priority: 1
-     hostname: "ConnetOS"
-     mad {
-         enable: true
-         interface: "qe-2/1/54"
-     }
 
 show iss configuration
 -------------------------------------------

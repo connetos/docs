@@ -90,37 +90,3 @@ set protocols static route
 
  ConnetOS# set protocols static route 10.10.1.0/24
 
-show protocols static
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**show protocols static** 命令用来查看静态路由的配置信息。
-
-命令格式
-+++++++++++++++
-**show protocols static** [ **route** *ip-address* ]
-
-参数说明
-+++++++++++++++
-*ip-address*：目的IP地址/掩码长度。点分十进制格式。
-
-命令模式
-+++++++++++++++
-配置模式
-
-使用指南
-+++++++++++++++
-无。
-
-配置举例
-+++++++++++++++
-# 查看ConnetOS上的静态路由的配置信息::
-
- ConnetOS# show protocols static
- Waiting for building configuration.
-    route 10.10.1.0/24 {
-        next-hop: 192.168.2.5
-        metric: 1
-    }
-
