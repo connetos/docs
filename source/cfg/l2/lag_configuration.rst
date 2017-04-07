@@ -152,7 +152,53 @@ LACP（Link Aggregation Control Protocol，链路聚合控制协议）基于IEEE
    ConnetOS# **commit**
 
 可以通过：
- * 执行命令 **show lacp neighbor**，查看LACP邻居，
- * 执行命令 **show lacp internal**，查看汇聚接口组的LACP状态，
- * 执行命令 **show lacp statistics**，查看LACP协议包的状态
+ 
+* 执行命令 **show lacp neighbor**，查看LACP邻居::
+  
+   ConnetOS> show lacp neighbor
+   Flags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation,
+           D -- Synchronization, E -- Collecting, F -- Distributing,
+           G -- Defaulted, H -- Expired
+   Aggregated interface: ae1
+   Port Number   Partner System ID         Partner Port Num   Port Priority   Admin Key   Oper Key   Flag
+   -----------   -----------------------   ----------------   -------------   ---------   --------   -----------
+   te-1/1/33     0,00:00:00:00:00:00       0                  0               0x00        0x00       {}
+   te-2/1/36     32768,2C:60:0C:84:61:49   28                 32768           0x00        0x46       {ACDEF}
+   Flags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation,
+           D -- Synchronization, E -- Collecting, F -- Distributing,
+           G -- Defaulted, H -- Expired
+   Aggregated interface: ae2
+   Port Number   Partner System ID         Partner Port Num   Port Priority   Admin Key   Oper Key   Flag
+   -----------   -----------------------   ----------------   -------------   ---------   --------   -----------
+   te-1/1/6      32768,2C:60:0C:84:61:49   4                  32768           0x00        0x45       {ACDEF}
+   te-2/1/6      32768,2C:60:0C:84:61:49   6                  32768           0x00        0x45       {ACDEF}
+
+* 执行命令 **show lacp internal**，查看汇聚接口组的LACP状态::
+ 
+   ConnetOS> show lacp internal
+   Flags:  A -- LACP_Activity, B -- LACP_Timeout, C -- Aggregation,
+           D -- Synchronization, E -- Collecting, F -- Distributing,
+           G -- Defaulted, H -- Expired
+   LACP System ID: 32768,00:03:0F:64:DA:5F
+   Aggregated interface: ae1
+   Port Number   Priority   Admin Key   Oper Key   Flag
+   -----------   --------   ---------   --------   -------------
+   te-1/1/33     32768      0x4F        0x4F       {ACG}
+   te-2/1/36     32768      0x4F        0x4F       {ACDEF}
+   Aggregated interface: ae2
+   Port Number   Priority   Admin Key   Oper Key   Flag
+   -----------   --------   ---------   --------   -------------
+   te-1/1/6      32768      0x50        0x50       {ACDEF}
+   te-2/1/6      32768      0x50        0x50       {ACDEF}
+
+* 执行命令 **show lacp statistics**，查看LACP协议包的状态::
+
+   ConnetOS> show lacp statistics
+   Port         LACP PDUs    LACP PDUs    Marker       Marker       Marker Resp   Marker Resp   LACP PDUs    LACP PDUs
+   Number       Sent         Received     Sent         Received     Sent          Received      Error        Dropped
+   ----------   ----------   ----------   ----------   ----------   -----------   -----------   ----------   ----------
+   te-1/1/33    16865        0            0            0            0             0             0            0
+   te-1/1/6     16869        16837        0            0            0             0             0            0
+   te-2/1/36    16865        16865        0            0            0             0             0            0
+   te-2/1/6     16865        16865        0            0            0             0             0            0
 

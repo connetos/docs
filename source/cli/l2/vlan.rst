@@ -1,6 +1,35 @@
 VLAN命令
 ========================
 
+clear vlan-interface statistics
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**clear vlan-interface statistics** 
+
+命令格式
++++++++++++++++
+**clear vlan-interface statistics** *vlan-interface*
+
+参数说明
++++++++++++++++
+*vlan-interface*：接口名称。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 清除接口vlan5上的统计信息::
+
+ ConnetOS> clear vlan-interface statistics vlan5
+
 set vlans vlan-id
 -------------------------------------------
 
@@ -227,16 +256,16 @@ set vlan-interface interface dhcp-relay
 
  ConnetOS# set vlan-interface interface vlan100 dhcp-relay server-ip 1.1.1.1
 
-clear vlan-interface statistics
+show vlan-interface
 -------------------------------------------
 
 命令功能
 +++++++++++++++
-**clear vlan-interface statistics** 
+**show vlan-interface**
 
 命令格式
 +++++++++++++++
-**clear vlan-interface statistics** *vlan-interface*
+**show vlan-interface** [ *vlan-interface* ]
 
 参数说明
 +++++++++++++++
@@ -252,6 +281,58 @@ clear vlan-interface statistics
 
 配置举例
 +++++++++++++++
-# 清除接口vlan5上的统计信息::
+# 查看设备上的vlan接口信息::
 
- ConnetOS> clear vlan-interface statistics vlan5
+ ConnetOS> show vlan-interface
+ Interface  Status  VLAN ID  MTU    MAC                Address
+ ---------  ------  -------  -----  -----------------  ------------------
+ vlan5      Down    5        1500   00:03:0F:64:DA:5F  5.5.5.1/24
+ vlan7      Up      7        1500   00:03:0F:64:DA:5F  7.7.7.1/24
+ vlan9      Up      9        1500   00:03:0F:64:DA:5F  9.9.9.1/24
+ vlan20     Up      20       1500   00:03:0F:64:DA:5F  22.22.22.10/24
+ vlan30     Up      30       1500   00:03:0F:64:DA:5F  33.33.33.10/24
+ vlan100    Up      100      1500   00:03:0F:64:DA:5F  11.11.11.1/24
+ vlan444    Down    444      1500   00:03:0F:64:DA:5F
+ vlan555    Down    555      1500   00:03:0F:64:DA:5F
+ vlan666    Down    666      1500   00:03:0F:64:DA:5F
+
+show vlans
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show vlans** 命令用来查看设备上的VLAN信息。
+
+命令格式
++++++++++++++++
+**show vlans** [ **brief** | **detail** | *vlan-id* ]
+
+参数说明
++++++++++++++++
+**brief**：查看VLAN的概要信息。
+
+**detail**：查看VLAN的详细信息。
+
+*vlan-id*：VLAN ID。当前已经创建的VLAN。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 查看VLAN 100信息::
+
+ ConnetOS> show vlans vlan-id 100
+ VLAN ID: 100
+ VLAN Name: default
+ Description:
+ vlan-interface: vlan100
+ Number of member ports: 3
+ Tagged port: None
+ Untagged port: te-2/1/2,  ae1,       ae2,
+
