@@ -1,6 +1,35 @@
 VLAN命令
 ========================
 
+clear vlan-interface statistics
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**clear vlan-interface statistics** 
+
+命令格式
++++++++++++++++
+**clear vlan-interface statistics** *vlan-interface*
+
+参数说明
++++++++++++++++
+*vlan-interface*：接口名称。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无
+
+配置举例
++++++++++++++++
+# 清除接口vlan5上的统计信息::
+
+ ConnetOS> clear vlan-interface statistics vlan5
+
 set vlans vlan-id
 -------------------------------------------
 
@@ -267,20 +296,24 @@ show vlan-interface
  vlan555    Down    555      1500   00:03:0F:64:DA:5F
  vlan666    Down    666      1500   00:03:0F:64:DA:5F
 
-clear vlan-interface statistics
+show vlans
 -------------------------------------------
 
 命令功能
 +++++++++++++++
-**clear vlan-interface statistics** 
+**show vlans** 命令用来查看设备上的VLAN信息。
 
 命令格式
 +++++++++++++++
-**clear vlan-interface statistics** *vlan-interface*
+**show vlans** [ **brief** | **detail** | *vlan-id* ]
 
 参数说明
 +++++++++++++++
-*vlan-interface*：接口名称。
+**brief**：查看VLAN的概要信息。
+
+**detail**：查看VLAN的详细信息。
+
+*vlan-id*：VLAN ID。当前已经创建的VLAN。
 
 命令模式
 +++++++++++++++
@@ -292,6 +325,14 @@ clear vlan-interface statistics
 
 配置举例
 +++++++++++++++
-# 清除接口vlan5上的统计信息::
+# 查看VLAN 100信息::
 
- ConnetOS> clear vlan-interface statistics vlan5
+ ConnetOS> show vlans vlan-id 100
+ VLAN ID: 100
+ VLAN Name: default
+ Description:
+ vlan-interface: vlan100
+ Number of member ports: 3
+ Tagged port: None
+ Untagged port: te-2/1/2,  ae1,       ae2,
+

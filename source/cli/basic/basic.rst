@@ -428,6 +428,108 @@ save
  ConnetOS# save running-to-startup
  Save done.
 
+show cli
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show cli** 命令用来查看当前CLI接口的设置。
+
+命令格式
++++++++++++++++
+**show cli** { **history** | **information** }
+
+参数说明
++++++++++++++++
+**history**：查看CLI接口上命令行操作历史纪录。
+
+**information**：查看当前CLI接口的设置信息。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 查看当前CLI接口的设置信息::
+
+ ConnetOS> show cli information
+ Idle timeout       : 900 seconds
+ Screen size(w x h) : 118 x 29
+ Terminal type      : xterm-256color
+ 
+show host
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show host** 命令用来查看当前设备信息。
+
+命令格式
++++++++++++++++
+**show host** { **date** | **os** }
+
+参数说明
++++++++++++++++
+**date**：查看当前日期及时间。
+
+**os**：查看当前设备的操作系统。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 查看当前设备的操作系统::
+
+ ConnetOS> show host os
+ Linux BJ-YUNQI-C1020-31.Int 3.16.7-ckt25+ #3 SMP Sun Jan 22 19:44:21 CST 2017 x86_64 GNU/Linux
+
+show tech-support
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show tech-support** 命令用来查看并保存设备故障时的日志。
+
+命令格式
++++++++++++++++
+**show tech-support**
+
+参数说明
++++++++++++++++
+无
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+在发生无法处理的故障后，请收集故障日志，发送到tech@connetos.com。
+
+配置举例
++++++++++++++++
+# 查看当前版本信息::
+
+ ConnetOS> show tech-support
+ Start to collect information ......
+ /switch/bin//shell/show_tech_support.sh: line 12: /switch/ConnetOS.Int-201704061939-techSupport.log: Permission denied
+ /switch/bin//shell/show_tech_support.sh: line 13: /switch/ConnetOS.Int-201704061939-techSupport.log: Permission denied
+ /switch/bin//shell/show_tech_support.sh: line 14: /switch/ConnetOS.Int-201704061939-techSupport.log: Permission denied
+ /switch/bin//shell/show_tech_support.sh: line 19: /switch/ConnetOS.Int-201704061939-techSupport.log: Permission denied
+
+ The information has been stored in /switch/ConnetOS.Int-201704061939-techSupport.log, please forward to tech@connetos.com
+
 show version
 -------------------------------------------
 
