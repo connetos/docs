@@ -196,7 +196,7 @@ pdf_stylesheets = ['a3','zh_CN']
 #pdf_compressed = False
  
 # A colon-separated list of folders to search for fonts. Example:
-pdf_font_path = ['/Users/malinjing/docs']
+#pdf_font_path = ['/Users/malinjing/docs']
  
 # Language to be used for hyphenation support
 pdf_language = "zh_CN"
