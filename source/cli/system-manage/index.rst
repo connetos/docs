@@ -15,7 +15,9 @@
    aaa
    systime
    syslog
+   snmp
    rcc
+
    
 
    
