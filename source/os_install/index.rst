@@ -13,4 +13,6 @@
    :numbered:
    :glob:
 
-   os_install
+   first_install
+   atp
+   update
