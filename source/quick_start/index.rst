@@ -14,3 +14,5 @@
    :glob:
 
    quick_start
+   specification
+   what's_new
