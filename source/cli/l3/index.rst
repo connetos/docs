@@ -11,6 +11,7 @@
  
    arp
    dhcp
+   route-table
    static
    ospf
    

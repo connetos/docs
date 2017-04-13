@@ -1,6 +1,37 @@
 日志命令
 =======================
 
+clear log
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**clear log** 命令用来清除日志文件。
+
+命令格式
++++++++++++++++
+**clear log** { *file-name* | **all** }
+
+参数说明
++++++++++++++++
+*file-name*：日志文件名称。
+
+**all**：清除所有的日志文件。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 清除所有的日志文件::
+ 
+ ConnetOS> clear log all
+
 set system syslog host server-ip
 -------------------------------------------
 
@@ -114,6 +145,41 @@ set system syslog log-level
 
  ConnetOS# set system syslog log-level error
 
+show log
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show log** 命令用来查看设备上的日志信息。
+
+命令格式
++++++++++++++++
+**show log** { **date** *date* | **last-rows** *row-number* }
+
+参数说明
++++++++++++++++
+*date*：查看指定日期的日志信息，取值形式为：YEAR.MM.DD
+
+*row-number*：查看指定行数的日志。整数形式，取值范围是1～。
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 查看最新存储的4条日志::
+
+ ConnetOS> show log last-rows 4
+ Apr 12 2017 11:36:50 ConnetOS local2.debug : [1][cli_sh] Parsing configuration
+ Apr 12 2017 11:36:57 ConnetOS local2.debug : [1][cli_sh] Starting CLI
+ Apr 12 2017 11:36:57 ConnetOS local0.warning : admin logined the switch cli
+ Apr 12 2017 11:37:10 ConnetOS local0.warning : [1][cli_sh] Executing command by admin: "show log last-rows 4"
+
 syslog monitor
 -------------------------------------------
 
@@ -145,33 +211,3 @@ syslog monitor
 
  ConnetOS> syslog monitor on
 
-clear log
--------------------------------------------
-
-命令功能
-+++++++++++++++
-**clear log** 命令用来清除日志文件。
-
-命令格式
-+++++++++++++++
-**clear log** { *file-name* | **all** }
-
-参数说明
-+++++++++++++++
-*file-name*：日志文件名称。
-
-**all**：清除所有的日志文件。
-
-命令模式
-+++++++++++++++
-运维模式
-
-使用指南
-+++++++++++++++
-无。
-
-配置举例
-+++++++++++++++
-# 清除所有的日志文件::
- 
- ConnetOS> clear log all
