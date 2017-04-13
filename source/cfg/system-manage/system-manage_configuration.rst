@@ -44,46 +44,6 @@ NTP（Network Time Protocol）网络时间协议是由RFC 1305定义的时间同
 
    ConnetOS# **commit**
 
-配置系统日志
-=======================================
-
-配置系统日志
----------------------------------------
-#. 进入配置模式。
-
-   ConnetOS> **configure**
-
-#. 配置日志级别。
-
-   ConnetOS# **set system syslog log-level** { **error** | **fatal** | **info** | **trace** | **warning** }
-
-   缺省情况下，日志级别是warning。
-
-#. 配置日志的facility值。
-
-   ConnetOS# **set system syslog log-facility** *facility-number*
-
-   缺省情况下，日志的facility值是0。
-
-#. （可选）指定远端日志服务器，用于接收ConnetOS发送过来的日志。
-
-   ConnetOS# **set system syslog host server-ip** *ip-address*
-
-#. 提交配置
-
-   ConnetOS# **commit**
-
-本地日志查看
----------------------------------------
-ConnetOS系统支持按行数和日期查看系统日志。
-
-* 按行数查看日志::
-   
-   ConnetOS> show log last-rows 5
-
-* 按日期查看日志: 
-   
-   ConnetOS> show log date 2016.11.18
 
 查询系统信息
 ---------------------------------------
@@ -230,42 +190,4 @@ ConnetOS重启命令为 **request system reboot**，命令执行时需要输入y
  
  ConnetOS> request system reboot
  Are you sure you want to reboot (yes/no)?
-
-设备升级
-=======================================
-
-系统升级
----------------------------------------
-系统升级的步骤如下：
-
- #. 将image拷贝到/var/upgrade目录下。
- #. 重启设备，系统将自动完成升级::
- 
-     ConnetOS> request system reboot
-
-.. Caution::
- * 执行 **request system reboot** 时，需要输入yes进行确认。
- * 升级image时，不会覆盖原有配置文件。
-
-配置文件升级
----------------------------------------
-配置文件升级主要指通过tftp方式将配置文件下载到交换机加载生效。
-
-升级的步骤如下：
- 
- #. tftp下载配置文件::
-
-     ConnetOS> file tftp get remote-file xxx local-file connetos.boot ip-address 192.168.2.2
-
- #. 重启系统
- 
- #. 启动后，配置文件自动加载::
-
-     ConnetOS> request system reboot
-
-.. Caution::
- * 上述升级命令中xxx为待升级的配置文件。
- * 上述升级命令中local-file的名字必须为connetos.boot。
- * 执行request system reboot时，需要输入yes进行确认。
- * 配置文件升级时，原有配置文件会被覆盖。
 

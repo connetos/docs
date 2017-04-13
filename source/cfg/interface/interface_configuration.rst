@@ -63,16 +63,40 @@
 
    ConnetOS# **commit**
 
-配置loopback接口
+loopback接口配置
 =======================================
 
+简介
+---------------------------------------
+Loopback是一个应用广泛的逻辑接口。逻辑接口是指能够实现数据交换功能，但是物理上不存在、需要通过配置建立的接口。Loopback接口一旦被创建，其物理状态和链路协议状态永远是Up，即使该接口上没有配置IP地址。
+
+Loopback接口具有以下用途：
+
+ * 提高可靠性
+
+    * 作为设备的管理地址。
+
+      系统管理员完成网络规划之后，为了方便管理，会为每一台设备创建一个loopback 接口，并在该接口上单独指定一个IP地址作为管理地址，管理员会使用该地址进行远程登录（telnet ），该地址实际上起到了类似设备名称一类的功能。
+
+    * 使用该接口地址作为动态路由协议OSPF 、BGP的router id。
+    * 使用该接口地址作为BGP 建立TCP连接的源地址。
+
+ * 对信息分类
+
+    * 使用SNMP时，可以设置发送trap报文时的源IP地址是Loopback接口的IP地址。
+    * 使用NTP时，可以把Loopback接口的IP地址作为所有从本路由器发出的NTP报文的源地址。
+    * 输出网络流量记录时，可以配置网络流量输出时的源IP地址是Loopback接口的IP地址。
+    * 在用户日志服务器端，建议配置Loopback地址作为日志报文的源IP地址。
+
+配置loopback接口
+---------------------------------------
 #. 进入配置模式。
 
    ConnetOS> **configure**
 
 #. 配置Loopback接口的IP地址和掩码
 
-   ConnetOS# **set loopback-interface interface** *lo-interface-name* **address** *ip-address*
+   ConnetOS# **set loopback-interface interface** *lo-interface-name* **address** *ip-address* [ **member** *member-id* ]
 
    ConnetOS支持配置多个loopback接口。
 
