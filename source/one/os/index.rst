@@ -10,6 +10,8 @@
    :maxdepth: 2
    :glob:
    
-   os
+   cumulus
+   snaproute
+   sonic
    
       
