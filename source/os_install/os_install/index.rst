@@ -3,15 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-系统安装
+安装ConnetOS
 =====================================
-ConnetOS在正常运行前，需要进行系统软件和配置文件的安装。
+
 
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
-   :glob:
 
-   os_install/index
-   config_file/index
+   install
+   update
+
