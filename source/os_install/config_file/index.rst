@@ -3,15 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-系统安装
+配置文件安装
 =====================================
-ConnetOS在正常运行前，需要进行系统软件和配置文件的安装。
+ConnetOS的配置文件有两种安装方式：
 
+ * ATP自动部署
+ * 手动安装
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
-   :glob:
 
-   os_install/index
-   config_file/index
+   atp
+   manual
+
