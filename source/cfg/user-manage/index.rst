@@ -3,16 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-设备管理配置
+用户登录管理
 =====================================
 
 .. toctree::
    :maxdepth: 2
    
   
-   basic_configuration
-   time_configuration
-   query_info
+   initial_configuration
+   login_mode_configuration
+   account_manage_configuration
+   aaa_configuration
+
+   
 
    
        
