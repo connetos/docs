@@ -428,6 +428,78 @@ save
  ConnetOS# save running-to-startup
  Save done.
 
+set system hostname (stack模式)
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**set iss member hostname** 命令用来设置设备名称。
+
+**delete iss member hostname** 命令用来删除配置的设备名称，恢复到缺省值。
+
+缺省情况下，设备名称为ConnetOS。
+
+命令格式
++++++++++++++++
+**set iss member** *member-id* **hostname** *hostname*
+
+**delete iss member** *member-id* **hostname**
+
+参数说明
++++++++++++++++
+*member-id*：堆叠系统的成员设备编号。整数形式，取值范围是0～2。0：表示设备处于单机模式；非0表示设备处于堆叠模式。
+
+*hostname*：本地文件名称。字符串形式，取值范围是1～63。支持区分大小写不支持空格。
+
+命令模式
++++++++++++++++
+配置模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 设置设备名称为switcha::
+
+ ConnetOS 1# set iss member hostname switcha
+
+set system hostname (standalone模式)
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**set system hostname** 命令用来设置设备名称。
+
+**delete system hostname** 命令用来删除配置的设备名称，恢复到缺省值。
+
+缺省情况下，设备名称为ConnetOS。
+
+命令格式
++++++++++++++++
+**set system hostname** *hostname*
+
+**delete system hostname**
+
+参数说明
++++++++++++++++
+*hostname*：本地文件名称。字符串形式，取值范围是1～63。支持区分大小写不支持空格。
+
+命令模式
++++++++++++++++
+配置模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 设置设备名称为switcha::
+
+ ConnetOS# set system hostname switcha
+
 show cli
 -------------------------------------------
 
