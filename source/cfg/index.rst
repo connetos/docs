@@ -15,13 +15,13 @@ ConnetOS提供丰富的交换机二三层功能，本章介绍ConnetOS支持的�
    
    shell/index
    devops/index
+   user-manage/index
    system-manage/index
    interface/index
    l2/index
    route/index
    qos/index
    iss/index
-   atp/index
    flow-monitor/index
    vxlan/index
    

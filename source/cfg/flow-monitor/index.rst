@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-网络监控和诊断
+网络分析和诊断
 =====================================
 ConnetOS针对网络运维的常见问题，提供如下的功能：
 
@@ -17,13 +17,14 @@ ConnetOS针对网络运维的常见问题，提供如下的功能：
 .. toctree::
    :maxdepth: 2
    
-  
-   
+   ping_tracert
+   syslog_configuration
    port-mirror_configuration
    sflow_configuration
    sdrop_configuration
    navmesh_configuration
    tcpdump_configuration
+
 
    
        

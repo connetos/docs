@@ -21,19 +21,19 @@
 +++++++++++++++++++++++++++++++++++++++
 facility，是用来指定产生日志的程序模块。syslog服务器上根据facility的值来对日志进行区分。
 
-本地设备的facility的标识为local0～local7。缺省情况下为local0.
+本地设备的facility的标识为local0～local7，缺省情况下facility的标识为local0。
 
 日志级别
 +++++++++++++++++++++++++++++++++++++++
 日志级别是用来表示日志的严重程度。
 
 ===========   ==========================
-级别			  含义
+级别			      含义
 ===========   ==========================
 info          一般提示信息
 trace         调试信息
 warning       告警信息
-error	      错误事件
+error	        错误事件
 fatal         致命错误，必须马上采取行动
 ===========   ==========================
 
@@ -78,12 +78,27 @@ ConnetOS系统支持按行数和日期查看系统日志。
 
 * 按行数查看日志::
    
-  ConnetOS> show log last-rows 4
-  Apr 12 2017 11:36:50 ConnetOS local2.debug : [1][cli_sh] Parsing configuration
-  Apr 12 2017 11:36:57 ConnetOS local2.debug : [1][cli_sh] Starting CLI
-  Apr 12 2017 11:36:57 ConnetOS local0.warning : admin logined the switch cli
-  Apr 12 2017 11:37:10 ConnetOS local0.warning : [1][cli_sh] Executing command by admin: "show log last-rows 4"
+   ConnetOS> show log last-rows 4
+   Apr 12 2017 11:36:50 ConnetOS local2.debug : [1][cli_sh] Parsing configuration
+   Apr 12 2017 11:36:57 ConnetOS local2.debug : [1][cli_sh] Starting CLI
+   Apr 12 2017 11:36:57 ConnetOS local0.warning : admin logined the switch cli
+   Apr 12 2017 11:37:10 ConnetOS local0.warning : [1][cli_sh] Executing command by admin: 
+   "show log last-rows 4"
 
-* 按日期查看日志: 
+* 按日期查看日志::
    
-   ConnetOS> show log date 2016.11.18
+   ConnetOS> show log date 2017.4.18
+   Apr 18 2017 15:41:38 ConnetOS local0.info : START: telnet pid=29107 from=192.168.1.141
+   Apr 18 2017 15:41:58 ConnetOS local0.debug : [1][rtrmgr] registering interest in 
+   cli-29134-ConnetOS
+   Apr 18 2017 15:41:58 ConnetOS local2.debug : [1][cli_sh] Waiting for configuration from 
+   rtrmgr
+   Apr 18 2017 15:41:58 ConnetOS local0.debug : [1][rtrmgr] XRL Birth: class 
+   cli-29134-ConnetOS instance cli-29134-ConnetOS-dfe1a22adc1cbd2ebbdae103226aee58@127.0.0.1
+   Apr 18 2017 15:41:59 ConnetOS local2.debug : [1][cli_sh] Parsing configuration
+   Apr 18 2017 15:42:05 ConnetOS local2.debug : [1][cli_sh] Starting CLI
+   Apr 18 2017 15:42:05 ConnetOS local0.warning : admin logined the switch cli
+   Apr 18 2017 15:42:22 ConnetOS local0.warning : [1][cli_sh] Executing command by admin: 
+   "show version "
+   Apr 18 2017 15:42:38 ConnetOS local0.warning : [1][cli_sh] Executing command by admin: 
+   "show log date 2017.4.18"
