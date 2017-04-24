@@ -16,7 +16,6 @@
    systime
    syslog
    snmp
-   rcc
 
    
 
