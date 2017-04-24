@@ -15,4 +15,5 @@ ConnetOS的配置文件有两种安装方式：
 
    atp
    manual
+   rollback
 
