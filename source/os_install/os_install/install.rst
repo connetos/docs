@@ -19,6 +19,10 @@ ConnetOS安装完成后，设备启动后直接载入ConnetOS运行，ONIE不再
 
 #. 对设备盘进行分区::
 
+    fdisk /dev/sda
+
+#. 创建分区::
+
     1
 
     p +22G
@@ -26,10 +30,6 @@ ConnetOS安装完成后，设备启动后直接载入ConnetOS运行，ONIE不再
     2 p
 
     2 t 82
-
-#. 创建分区::
-
-    fdisk /dev/sda
 
 #. 设置分区标签::
 
