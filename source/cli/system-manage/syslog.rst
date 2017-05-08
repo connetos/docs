@@ -145,16 +145,16 @@ set system syslog log-level
 
  ConnetOS# set system syslog log-level error
 
-show log
+show syslog
 -------------------------------------------
 
 命令功能
 +++++++++++++++
-**show log** 命令用来查看设备上的日志信息。
+**show syslog** 命令用来查看设备上的日志信息。
 
 命令格式
 +++++++++++++++
-**show log** { **date** *date* | **last-rows** *row-number* }
+**show syslog** { **date** *date* | **last-rows** *row-number* }
 
 参数说明
 +++++++++++++++
@@ -174,7 +174,7 @@ show log
 +++++++++++++++
 # 查看最新存储的4条日志::
 
- ConnetOS> show log last-rows 4
+ ConnetOS> show syslog last-rows 4
  Apr 12 2017 11:36:50 ConnetOS local2.debug : [1][cli_sh] Parsing configuration
  Apr 12 2017 11:36:57 ConnetOS local2.debug : [1][cli_sh] Starting CLI
  Apr 12 2017 11:36:57 ConnetOS local0.warning : admin logined the switch cli

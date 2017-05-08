@@ -77,7 +77,7 @@ Firewall简介
 
    一个过滤策略，可以同时绑定多个过滤规则组。
 
-   ConnetOS# **set firewall filter** *filter-name* **term** *term-name* [ **action** { **discard** | **forward** } ]
+   ConnetOS# **set firewall filter** *filter-name* **matching term** *term-name* [ **action** { **discard** | **forward** } ]
 
 #. 应用过滤策略，对接口或VLAN上的报文进行过滤。
 
