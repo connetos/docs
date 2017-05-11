@@ -57,7 +57,7 @@ set protocols ospf4 area area-range advertise enable
 +++++++++++++++
 *area-id*：OSPF区域标识，点分十进制形式。
 
-*network-addres*：区域所包含的网段。取值形式是网段地址／掩码。
+*network-address*：区域所包含的网段。取值形式是网段地址／掩码。
 
 **false**：去使能聚合路由通告功能。
 
