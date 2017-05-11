@@ -110,7 +110,11 @@ DDM（Digital Diagnostic Monitoring）数字诊断监控功能，可以监测模
 
 ConnetOS支持对光模块的DDM信息进行查询展示::
 
- ConnetOS> show interface diagnostics optics all
- Interface   Temp(C)  Voltage(V)  Bias(mA)  Tx Power(dBm)  Rx Power(dBm)   Module Type
- ----------    -------     ----------    --------      -------------        -------------    -----------
- qe-1/1/49   40.31    3.32        5.83      NA            -2.01            CR4/DAC
+ ConnetOS> show system ddm
+ Interface   Temp(C)  Voltage(V)  Bias(mA)  Tx Power(dBm)  Rx Power(dBm)  Module Type
+ ----------  -------  ----------  --------  -------------  -------------  -----------
+ te-1/1/6    36.24    3.39        8.10      -1.94          -2.80          SR/850nm
+ te-1/1/7    28.45    3.35        5.14      -2.32          -2.75          SR/850nm
+ te-1/1/34   32.33    3.37        8.09      -2.15          -2.24          SR/850nm
+ qe-1/1/52   35.78    3.29        5.83      -3.61          -2.52          SR4/850nm
+ qe-1/1/54   33.78    3.33        NA        NA             NA             SR4/850nm
