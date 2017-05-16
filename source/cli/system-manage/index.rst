@@ -15,6 +15,7 @@
    aaa
    systime
    syslog
+   query-info
    snmp
 
    

@@ -99,3 +99,35 @@ set system timezone
 # 设置系统时区为Africa/Malabo::
 
  ConnetOS# set system timezone Africa/Malabo
+
+show system ntp-status
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**show system ntp-status** 命令用来查看NTP服务器的状态。
+
+命令格式
++++++++++++++++
+**show system ntp-status**
+
+参数说明
++++++++++++++++
+无
+
+命令模式
++++++++++++++++
+运维模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 查看NTP服务器的状态::
+
+ ConnetOS 1> show system ntp-status
+ unsynchronised
+   time server re-starting
+    polling server every 8 s
