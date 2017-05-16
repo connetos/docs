@@ -65,6 +65,8 @@
 
    **set policy policy-statement** *policy-name* **term** *term-name* **then** ＋ 策略动作
 
+   **set policy policy-statement** **then** ＋ 策略动作
+
    其中：
 
     * *policy-name*：代表策略名字。
@@ -96,7 +98,13 @@
 
 #. 设置路由策略的动作。
    
-   ConnetOS# **set policy policy-statement** *policy-name* **term** *term-name* **then** { **accept** | **aggregate-brief-mode** { **false** | **true** } | **aggregate-prefix-len**  *aggregate-prefix-len* | **as-path-expand** *as-path-expand* | **as-path-prepend** *as-path-prepend* | **community** *community-name* | **community-add** *community-add-name* | **community-del** *community-del* | **external-type** *external-type-number* | **localpref** *localpref* | **med** *med* | **med-remove** { **false** | **true** } | **metric** *metric* | **nexthop4** *nexthop4-address* | **nexthop4-var** { **peer-address** | **self**} | **origin** *origin-attribute* | **reject** | **tag** *tag-value* }
+   * 设置路由策略的整体动作。
+
+     **set policy policy-statement** *policy-name* **then** { **accept** | **reject** }
+
+   * 设置指定策略内容的动作。
+
+     ConnetOS# **set policy policy-statement** *policy-name* **term** *term-name* **then** { **accept** | **aggregate-brief-mode** { **false** | **true** } | **aggregate-prefix-len**  *aggregate-prefix-len* | **as-path-expand** *as-path-expand* | **as-path-prepend** *as-path-prepend* | **community** *community-name* | **community-add** *community-add-name* | **community-del** *community-del* | **external-type** *external-type-number* | **localpref** *localpref* | **med** *med* | **med-remove** { **false** | **true** } | **metric** *metric* | **nexthop4** *nexthop4-address* | **nexthop4-var** { **peer-address** | **self**} | **origin** *origin-attribute* | **reject** | **tag** *tag-value* }
 
 #. 应用路由策略。
    
