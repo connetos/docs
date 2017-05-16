@@ -55,9 +55,9 @@
 
 路由策略的配置逻辑
 +++++++++++++++++++++++++++++++++++++++
-配置路由策略，分为两步：
+路由策略的视线，分为两步：
 
-#. 定义路由策略。
+#. 定义路由策略。即定义一组匹配规则，标识出将要实施路由策略的路由信息。可以采用路由信息中的不同属性作为匹配依据进行设置。
     
    ConnetOS采用策略名＋策略内容名＋动作＋策略规则的方式，来实现路由策略：
 
@@ -65,15 +65,19 @@
 
    **set policy policy-statement** *policy-name* **term** *term-name* **then** ＋ 策略动作
 
+   **set policy policy-statement** **then** ＋ 策略动作
+
    其中：
 
-    * *policy-name*：代表策略名字。
-    * *term-name*：代表策略内容。一个策略策略下可以配置多个 *term-name*。
+    * *policy-name*：策略名称。
+    * *term-name*：策略内容名称。一个策略策略下可以配置多个 *term-name*。
     * **from**：应用于源地址路由
     * **to**：应用于目的地址路由。
     * **then**：匹配策略后的后的动作。
 
 #. 应用路由策略。
+  
+   将匹配规则应用于路由的发布、接收和引入。
 
   路由策略设置好后，直接在路由协议中应用即可生效。
 
@@ -96,7 +100,13 @@
 
 #. 设置路由策略的动作。
    
-   ConnetOS# **set policy policy-statement** *policy-name* **term** *term-name* **then** { **accept** | **aggregate-brief-mode** { **false** | **true** } | **aggregate-prefix-len**  *aggregate-prefix-len* | **as-path-expand** *as-path-expand* | **as-path-prepend** *as-path-prepend* | **community** *community-name* | **community-add** *community-add-name* | **community-del** *community-del* | **external-type** *external-type-number* | **localpref** *localpref* | **med** *med* | **med-remove** { **false** | **true** } | **metric** *metric* | **nexthop4** *nexthop4-address* | **nexthop4-var** { **peer-address** | **self**} | **origin** *origin-attribute* | **reject** | **tag** *tag-value* }
+   * 设置路由策略的整体动作。
+
+     **set policy policy-statement** *policy-name* **then** { **accept** | **reject** }
+
+   * 设置指定策略内容的动作。
+
+     ConnetOS# **set policy policy-statement** *policy-name* **term** *term-name* **then** { **accept** | **aggregate-brief-mode** { **false** | **true** } | **aggregate-prefix-len**  *aggregate-prefix-len* | **as-path-expand** *as-path-expand* | **as-path-prepend** *as-path-prepend* | **community** *community-name* | **community-add** *community-add-name* | **community-del** *community-del* | **external-type** *external-type-number* | **localpref** *localpref* | **med** *med* | **med-remove** { **false** | **true** } | **metric** *metric* | **nexthop4** *nexthop4-address* | **nexthop4-var** { **peer-address** | **self**} | **origin** *origin-attribute* | **reject** | **tag** *tag-value* }
 
 #. 应用路由策略。
    
