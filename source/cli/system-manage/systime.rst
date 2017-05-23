@@ -127,7 +127,7 @@ show system ntp-status
 +++++++++++++++
 # 查看NTP服务器的状态::
 
- ConnetOS 1> show system ntp-status
- unsynchronised
-   time server re-starting
-    polling server every 8 s
+ ConnetOS> show system ntp-status
+ synchronised to NTP server (192.168.1.102) at stratum 3
+   time correct to within 1247 ms
+    polling server every 64 s
