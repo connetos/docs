@@ -14,6 +14,8 @@
    route-table
    static
    ospf
+   bgp
+   routing-policy
    
 
    
