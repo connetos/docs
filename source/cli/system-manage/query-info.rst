@@ -497,7 +497,7 @@ show system serial-number
 +++++++++++++++
 单机模式：**show system serial-number**
 
-堆叠模式：**show system serial-number**[ **all** | **member** *member-id* ]
+堆叠模式：**show system serial-number** [ **all** | **member** *member-id* ]
 
 参数说明
 +++++++++++++++

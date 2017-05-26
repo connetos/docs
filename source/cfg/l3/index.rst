@@ -14,6 +14,7 @@
    dhcp-relay_configuration
    static_configuration
    ospf_configuration
+   bgp_configuration
    routing-policy_configuration
 
    
