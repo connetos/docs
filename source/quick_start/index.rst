@@ -14,5 +14,6 @@
    :glob:
 
    quick_start
+   user-guide
    specification
    what's_new
