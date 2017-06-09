@@ -46,8 +46,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ConnetOS Docs'
-copyright = u'2017, YUNQI Tech'
-author = u'YUNQI Tech'
+copyright = u'2017, YUNQI TECH'
+author = u'YUNQI TECH'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -188,7 +188,7 @@ pdf_documents = [
 ]
  
 # A comma-separated list of custom stylesheets. Example:
-pdf_stylesheets = ['a3','zh_CN']
+pdf_stylesheets = ['sphinx','kerning','a4','zh_CN']
  
 # Create a compressed PDF
 # Use True/False or 1/0
@@ -248,10 +248,10 @@ pdf_fit_mode = "shrink"
 #pdf_page_template = 'cutePage'
  
 # Show Table Of Contents at the beginning?
-pdf_use_toc = False
+pdf_use_toc = True
  
 # How many levels deep should the table of contents be?
-pdf_toc_depth = 3
+pdf_toc_depth = 2
  
 # Add section number to section references
 pdf_use_numbered_links = False
