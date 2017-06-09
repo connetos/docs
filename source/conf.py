@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'ConnetOS Docs'
+project = u'ConnetOS Documentation'
 copyright = u'2017, YUNQI TECH'
 author = u'YUNQI TECH'
 
@@ -142,8 +142,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ConnetOSDocs.tex', u'ConnetOS Docs',
-     u'YUNQI Tech', 'manual'),
+    (master_doc, 'ConnetOSDocs.tex', u'ConnetOS Documentation',
+     u'YUNQI TECH', 'manual'),
 ]
 
 
@@ -152,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'connetosdocs', u'ConnetOS Docs',
+    (master_doc, 'connetosdocs', u'ConnetOS Documentation',
      [author], 1)
 ]
 
@@ -162,7 +162,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ConnetOSDocs', u'ConnetOS Docs',
+    (master_doc, 'ConnetOSDocs', u'ConnetOS Documentation',
      author, 'ConnetOSDocs', 'One line description of project.',
      'Miscellaneous'),
 ]
@@ -184,11 +184,11 @@ texinfo_documents = [
 # regardless of the global pdf_compressed setting.
  
 pdf_documents = [
-    ('index', u'HanLP Handbook', u'HanLP Handbook', u'hankcs'),
+    ('index', u'ConnetOSDoc', u'ConnetOS Documentation', u'YUNQI TECH'),
 ]
  
 # A comma-separated list of custom stylesheets. Example:
-pdf_stylesheets = ['sphinx','kerning','a4','zh_CN']
+pdf_stylesheets = ['sphinx','kerning','a4','ja']
  
 # Create a compressed PDF
 # Use True/False or 1/0
@@ -199,7 +199,7 @@ pdf_stylesheets = ['sphinx','kerning','a4','zh_CN']
 #pdf_font_path = ['/Users/malinjing/docs']
  
 # Language to be used for hyphenation support
-pdf_language = "zh_CN"
+pdf_language = "ja"
  
 # Mode for literal blocks wider than the frame. Can be
 # overflow, shrink or truncate
