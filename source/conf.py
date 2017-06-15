@@ -123,6 +123,13 @@ paper_size = 'a4paper'
 font_size = '10pt'
 
 
+latex_elements = {
+         'classoptions':',openany',
+         'babel':'\\usepackage[english]{babel}',
+         'papersize':paper_size,
+         'pointsize':font_size,
+         'fncychap':'\\usepackage[Bjarne]{fncychap}'}
+         
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
@@ -134,12 +141,6 @@ latex_documents = [
 latex_logo = 'connetos-logo.png'
 
 
-latex_elements = {
-         'classoptions':',openany',
-         'babel':'\\usepackage[english]{babel}',
-         'papersize':paper_size,
-         'pointsize':font_size,
-         'fncychap':'\\usepackage[Bjarne]{fncychap}'}
 
 # -- Options for manual page output ---------------------------------------
 
