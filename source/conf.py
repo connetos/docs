@@ -16,8 +16,8 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -31,6 +31,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 # extensions = ['rst2pdf.pdfbuilder']
+extensions = ['sphinx.ext.autodoc']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -111,32 +112,16 @@ html_show_sourcelink = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-
+html_logo = 'connetos-logo.png'
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ConnetOSDocsdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
+paper_size = 'a4paper'
+font_size = '10pt'
 
-latex_elements = {
-'papersize': 'a4paper',
-'preamble': '''
-\hypersetup{unicode=true}
-\usepackage{CJKutf8}
-\DeclareUnicodeCharacter{00A0}{\\nobreakspace}
-\DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
-\DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
-\DeclareUnicodeCharacter{2713}{x}
-\DeclareUnicodeCharacter{27FA}{\ensuremath{\Longleftrightarrow}}
-\DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
-\DeclareUnicodeCharacter{221B}{\ensuremath{\sqrt[3]{}}}
-\DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
-\DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
-\AtBeginDocument{\\begin{CJK}{UTF8}{gbsn}}
-\AtEndDocument{\end{CJK}}
-'''
-}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -146,6 +131,15 @@ latex_documents = [
      u'YUNQI TECH', 'manual'),
 ]
 
+latex_logo = 'connetos-logo.png'
+
+
+latex_elements = {
+         'classoptions':',openany',
+         'babel':'\\usepackage[english]{babel}',
+         'papersize':paper_size,
+         'pointsize':font_size,
+         'fncychap':'\\usepackage[Bjarne]{fncychap}'}
 
 # -- Options for manual page output ---------------------------------------
 
@@ -278,9 +272,6 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
-
-
 
 
 
