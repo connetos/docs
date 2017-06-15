@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ConnetOS Documentation'
-copyright = u'2017, YUNQI Tech'
-author = u'YUNQI Tech'
+copyright = u'2017, YUNQI TECH'
+author = u'YUNQI TECH'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -122,22 +122,24 @@ htmlhelp_basename = 'ConnetOSDocsdoc'
 paper_size = 'a4paper'
 font_size = '10pt'
 
-latex_elements = {
-         'classoptions':',openany',
-         'babel':'\\usepackage[english]{babel}',
-         'papersize':paper_size,
-         'pointsize':font_size,
-         'fncychap':'\\usepackage[Bjarne]{fncychap}'}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'ConnetOSDocs.tex', u'ConnetOS Documentation',
-     u'YUNQI Tech', 'manual'),
+     u'YUNQI TECH', 'manual'),
 ]
 
 latex_logo = 'connetos-logo.png'
+
+
+latex_elements = {
+         'classoptions':',openany',
+         'babel':'\\usepackage[english]{babel}',
+         'papersize':paper_size,
+         'pointsize':font_size,
+         'fncychap':'\\usepackage[Bjarne]{fncychap}'}
 
 # -- Options for manual page output ---------------------------------------
 
