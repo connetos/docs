@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'ConnetOS Docs'
+project = u'ConnetOS Documentation'
 copyright = u'2017, YUNQI Tech'
 author = u'YUNQI Tech'
 
