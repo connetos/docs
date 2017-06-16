@@ -18,7 +18,7 @@
 #
 import os
 import sys
-# sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- General configuration ------------------------------------------------
@@ -268,7 +268,7 @@ pdf_fit_mode = "shrink"
 #pdf_page_template = 'cutePage'
  
 # Show Table Of Contents at the beginning?
-pdf_use_toc = False
+pdf_use_toc =True 
  
 # How many levels deep should the table of contents be?
 pdf_toc_depth = 2
