@@ -31,8 +31,14 @@ sys.path.insert(0, os.path.abspath('.'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 # extensions = ['rst2pdf.pdfbuilder']
-extensions = ['sphinx.ext.autodoc']
 
+extensions = ['sphinx.ext.autodoc',
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.imgmath',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.viewcode']
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -274,7 +280,7 @@ pdf_use_toc =True
 pdf_toc_depth = 3
  
 # Add section number to section references
-pdf_use_numbered_links = False
+pdf_use_numbered_links = True
  
 # Background images fitting mode
 pdf_fit_background_mode = 'scale'
