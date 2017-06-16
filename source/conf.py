@@ -119,16 +119,24 @@ html_logo = 'connetos-logo.png'
 htmlhelp_basename = 'ConnetOSDocsdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
-paper_size = 'a4paper'
-font_size = '10pt'
-
-
 latex_elements = {
-         'classoptions':',openany',
-         'babel':'\\usepackage[english]{babel}',
-         'papersize':paper_size,
-         'pointsize':font_size,
-         'fncychap':'\\usepackage[Bjarne]{fncychap}'}
+'papersize': 'a4paper',
+'preamble': '''
+\hypersetup{unicode=true}
+\usepackage{CJKutf8}
+\DeclareUnicodeCharacter{00A0}{\\nobreakspace}
+\DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+\DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+\DeclareUnicodeCharacter{2713}{x}
+\DeclareUnicodeCharacter{27FA}{\ensuremath{\Longleftrightarrow}}
+\DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
+\DeclareUnicodeCharacter{221B}{\ensuremath{\sqrt[3]{}}}
+\DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+\DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+\\begin{CJK}{UTF8}{gbsn}
+\AtEndDocument{\end{CJK}}
+'''
+}
          
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
