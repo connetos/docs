@@ -24,11 +24,13 @@
 ---------------------------------------
 关注公众号，获取业界前沿的深度报道。       
 
-.. image:: wetchat.png    
+.. image:: wetchat.png 
+    :width: 200
 
 访问官网，了解更多ConnetOS更多信息。
 
 .. image:: website.png
+    :width: 200
 
 
 
