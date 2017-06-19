@@ -118,7 +118,7 @@ html_show_sourcelink = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_logo = 'connetos-logo.png'
+html_logo = 'logo-white.png'
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
@@ -169,7 +169,7 @@ latex_documents = [
      u'YUNQI TECH', 'manual'),
 ]
 
-latex_logo = 'connetos-logo.png'
+latex_logo = 'logo-blue.png'
 
 
 
