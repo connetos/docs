@@ -11,7 +11,7 @@ ConnetOS是云启科技公司开发的一款适用于现代数据中心网络的
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :glob:
 
    quick_start/index
@@ -23,7 +23,8 @@ ConnetOS是云启科技公司开发的一款适用于现代数据中心网络的
    app/index
    one/index
    download/index
-   about_us/index
    faq/index
+   about_us/index
+   
 
 
