@@ -13,4 +13,7 @@
    :numbered:
    :glob:
 
-   solution
+   sdrop_solution
+   cdn
+   visual
+   reliability
