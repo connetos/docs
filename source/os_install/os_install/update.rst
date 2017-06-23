@@ -8,8 +8,8 @@
  
      ConnetOS> request system reboot
 
-.. Caution::
- * 执行 **request system reboot** 时，需要输入yes进行确认。
- * 升级image时，不会覆盖原有配置文件。
+  .. Caution::
+   * 执行 **request system reboot** 时，需要输入yes进行确认。
+   * 升级image时，不会覆盖原有配置文件。
 
 如果升级失败，重启设备进行ConnetOS的安装即可。

@@ -69,8 +69,7 @@ sDrop缺省情况下是使能的，用户只需要指定Collector即可。
 设备支持将报文的丢包信息导出，通过wireshark的lua插件进行展示，展示的结果如下所示。
 
 .. image:: l3_lookup_miss.png
-
-
+    :width: 400
 
 
 
