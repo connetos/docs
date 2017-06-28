@@ -1,3 +1,6 @@
+堆叠命令
+====================================
+
 set member-id
 ------------------------------------
 命令功能
@@ -15,8 +18,8 @@ set member-id
 *member-id*：堆叠设备的member ID。整数形式，取值范围是0～2。
 
  * 0：表示设备处于单机模式。
- * 1：表示设备处于堆叠模式，且member ID为1。
- * 2：表示设备处于堆叠模式，且member ID为2。
+ * 1：表示设备处于堆叠模式，且成员ID为1。
+ * 2：表示设备处于堆叠模式，且成员ID为2。
 
 命令模式
 ++++++++++++++++
@@ -24,7 +27,9 @@ set member-id
 
 使用指南
 +++++++++++++++
-如果如果要使能堆叠特性，必须首先设置堆叠模式及设备的member ID。
+如果想要使用堆叠功能，必须首先配置member ID，将设备设置成堆叠模式。
+
+重启后，即可配置堆叠功能。
 
 配置举例
 +++++++++++++++
@@ -32,6 +37,48 @@ set member-id
 
  ConnetOS> set member-id 1
  Are you sure you want to change the member-id(yes/no)?
+ Now you need to reboot to enable stack mode or the new member-id.
+
+set system hostname (stack模式)
+-------------------------------------------
+
+命令功能
++++++++++++++++
+**set iss member hostname** 命令用来设置设备名称。
+
+**delete iss member hostname** 命令用来删除配置的设备名称，恢复到缺省值。
+
+缺省情况下，设备名称为ConnetOS。
+
+命令格式
++++++++++++++++
+**set iss member** *member-id* **hostname** *hostname*
+
+**delete iss member** *member-id* **hostname**
+
+参数说明
++++++++++++++++
+*member-id*：堆叠设备的member ID。整数形式，取值范围是0～2。
+
+ * 0：表示设备处于单机模式。
+ * 1：表示设备处于堆叠模式，且member ID为1。
+ * 2：表示设备处于堆叠模式，且member ID为2。
+
+*hostname*：本地文件名称。字符串形式，取值范围是1～63。支持区分大小写不支持空格。
+
+命令模式
++++++++++++++++
+配置模式
+
+使用指南
++++++++++++++++
+无。
+
+配置举例
++++++++++++++++
+# 设置设备名称为switcha::
+
+ ConnetOS 1# set iss member hostname switcha
 
 set iss member mad enable
 -------------------------------------------
@@ -230,7 +277,7 @@ show iss
 
 命令功能
 +++++++++++++++
-**show iss** 命令用来查看ISS堆叠系统中所有设备的信息。
+**show iss** 命令用来查看堆叠系统中的成员设备信息。
 
 命令格式
 +++++++++++++++
@@ -246,11 +293,11 @@ show iss
 
 使用指南
 +++++++++++++++
-此命令可以查看所有设备的角色的优先级、设备MAC、桥MAC等信息。
+此命令可以查看成员设备的Member ID、角色、选举优先级、设备MAC、桥MAC、设备名称信息。
 
 配置举例
 +++++++++++++++
-# 查看ISS堆叠系统中所有设备的信息::
+# 查看堆叠系统中的成员设备信息::
 
  ConnetOS 1> show iss
  Member ID   Role     Priority   Device MAC          ISS MAC             Hostname
@@ -258,12 +305,23 @@ show iss
  1           Master   1          00:03:0f:64:da:5f   00:03:0f:64:da:5f   BJ-YUNQI-C1020-31.Int
  2           Slave    1          00:03:0f:64:da:53   00:03:0f:64:da:5f   BJ-YUNQI-C1020-32.Int
 
+===========    =======================
+项目            含义
+===========    =======================
+Member ID      成员ID。
+Role           角色。
+Priority       选举优先级。
+Device MAC     设备MAC地址。
+ISS MAC        堆叠系统对外的MAC地址。
+Hostname       设备名称。        
+===========    =======================
+
 show iss configuration
 -------------------------------------------
 
 命令功能
 +++++++++++++++
-**show iss configuration** 命令用来查看堆叠系统的的配置信息。
+**show iss configuration** 命令用来查看堆叠系统中成员设备的配置信息。
 
 命令格式
 +++++++++++++++
@@ -283,7 +341,7 @@ show iss configuration
 
 配置举例
 +++++++++++++++
-# 查看设备上堆叠的配置信息::
+# 查看堆叠系统中成员设备的配置信息::
 
  ConnetOS 1> show iss configuration
  Member ID   ISS Link Status   Interface        Interface Status   Neighbour
@@ -297,6 +355,16 @@ show iss configuration
  -----------------------------------------
   * indicates the control interface of ISS.
 
+===================   ============================
+项目                   含义
+===================   ============================
+Member ID             成员ID。
+ISS Link Status       堆叠链路状态。
+Interface             堆叠接口，用于连接邻居成员设备。
+Interface Status      接口状态。
+Neighbour             邻居成员设备的端口。
+*                     传输控制报文的接口。
+===================   ============================
 
 show iss mad
 -------------------------------------------
@@ -373,6 +441,15 @@ show iss statistics
                      Anno                0                   0
                      AnnoAck             0                   0
 
+============  ============
+项目           含义
+============  ============  
+Interface     堆叠接口名称
+Packet Type   报文类型
+Input         接收的报文
+Output        发送的报文
+============  ============                 
+
 show iss sync-status
 -------------------------------------------
 
@@ -405,3 +482,12 @@ show iss sync-status
  ---------  ------  -------  -------------------
  1          Master  Full     2017-03-27 20:32:10
  2          Slave   Full     2017-03-27 20:32:10
+
+=================  =================
+项目                含义
+=================  =================
+Member ID          成员ID
+Role               成员角色
+State              设备状态
+Last Sync Time     上一次同步时间
+=================  =================
