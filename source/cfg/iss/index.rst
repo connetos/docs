@@ -18,8 +18,10 @@ ISS（Intelligent Stacking System），是云启针对云业务环境研发的�
 .. toctree::
    :maxdepth: 2
    
+   iss_overview
+   iss_principle
+   iss_configure
    
-   iss_configuration
    
 
    
