@@ -29,42 +29,43 @@ set member-id
 +++++++++++++++
 如果想要使用堆叠功能，必须首先配置member ID，将设备设置成堆叠模式。
 
-重启后，即可配置堆叠功能。
+重启设备后，即可进行堆叠功能的配置。
+
+.. note::
+    成员设备的member ID不能设备为相同的。
 
 配置举例
 +++++++++++++++
-# 设置本设备为堆叠模式，并且member ID为1::
+# 设置本设备为堆叠模式，member ID为1::
 
  ConnetOS> set member-id 1
  Are you sure you want to change the member-id(yes/no)?
  Now you need to reboot to enable stack mode or the new member-id.
 
-set system hostname (stack模式)
--------------------------------------------
+set interface gigabit-ethernet iss-port enable
+--------------------------------------------------------
 
 命令功能
 +++++++++++++++
-**set iss member hostname** 命令用来设置设备名称。
+**set interface gigabit-ethernet iss-port enable** 命令用来配置是否将指定接口配置成堆叠接口。
 
-**delete iss member hostname** 命令用来删除配置的设备名称，恢复到缺省值。
+**delete interface gigabit-ethernet iss-port enable** 命令用来删除堆叠接口。
 
-缺省情况下，设备名称为ConnetOS。
+缺省情况下，设备上没有堆叠接口。
 
 命令格式
 +++++++++++++++
-**set iss member** *member-id* **hostname** *hostname*
+**set interface gigabit-ethernet** *interface-name* **iss-port enable** { **false** | **true**}
 
-**delete iss member** *member-id* **hostname**
+**delete interface gigabit-ethernet** *interface-name* **iss-port enable**
 
 参数说明
 +++++++++++++++
-*member-id*：堆叠设备的member ID。整数形式，取值范围是0～2。
+*interface-name*：堆叠接口。
 
- * 0：表示设备处于单机模式。
- * 1：表示设备处于堆叠模式，且member ID为1。
- * 2：表示设备处于堆叠模式，且member ID为2。
+**false**：不使能指定接口的堆叠功能。
 
-*hostname*：本地文件名称。字符串形式，取值范围是1～63。支持区分大小写不支持空格。
+**true**：使能指定接口的堆叠功能。
 
 命令模式
 +++++++++++++++
@@ -72,13 +73,16 @@ set system hostname (stack模式)
 
 使用指南
 +++++++++++++++
-无。
+堆叠接口是堆叠设备连接的接口， 一般在进行ISS配置的时候指定，配置完成重启后，成员设备进行初始化时完成端口模式的转换及进行相关配置。在运行的过程中也可以动态添加或者删除堆叠口成员。
+
+如果指定多个物理端口为堆叠接口，那么这些堆叠接口将形成汇聚接口组，进行流量负载分担。
+跨设备通信的报文需要通过堆叠接口转发。
 
 配置举例
 +++++++++++++++
-# 设置设备名称为switcha::
+# 设置接口te-1/1/13为堆叠接口::
 
- ConnetOS 1# set iss member hostname switcha
+ ConnetOS# set interface gigabit-ethernet te-1/1/13 iss-port enable true
 
 set iss member mad enable
 -------------------------------------------
@@ -148,7 +152,7 @@ set iss member mad excluded-interface
 
 使用指南
 +++++++++++++++
-堆叠分裂时，除了预留接口，其他接口都会down。
+堆叠分裂时，除了预留接口，其他接口都会shutdown。
 
 配置举例
 +++++++++++++++
@@ -198,11 +202,11 @@ set iss member priority
 
 命令功能
 +++++++++++++++
-**set iss member priority** 命令用来设置堆叠系统成员设备的优先级。
+**set iss member priority** 命令用来设置堆叠系统成员设备的选举优先级。
 
-**delete iss member priority** 命令用来删除配置的堆叠系统成员设备的优先级。
+**delete iss member priority** 命令用来删除配置的堆叠系统成员设备的选举优先级。
 
-缺省情况下，设备成员的优先级是1。
+缺省情况下，设备成员的选举优先级是1。
 
 命令格式
 +++++++++++++++
@@ -214,7 +218,7 @@ set iss member priority
 +++++++++++++++
 *member-id*：堆叠设备的member ID。
 
-*priority-number*：堆叠系统的成员优先级。整数形式，取值范围是0～32。
+*priority-number*：堆叠系统成员设备的优先级。整数形式，取值范围是0～32。数值越大的，优先级越高。
 
 命令模式
 +++++++++++++++
@@ -230,30 +234,32 @@ set iss member priority
 
  ConnetOS# set iss member 1 priority 4
 
-set interface gigabit-ethernet iss-port enable
---------------------------------------------------------
+set system hostname (stack模式)
+-------------------------------------------
 
 命令功能
 +++++++++++++++
-**set interface gigabit-ethernet iss-port enable** 命令用来配置是否将指定接口配置成堆叠接口。
+**set iss member hostname** 命令用来设置设备名称。
 
-**delete interface gigabit-ethernet iss-port enable** 命令用来删除堆叠接口。
+**delete iss member hostname** 命令用来删除配置的设备名称，恢复到缺省值。
 
-缺省情况下，设备上没有堆叠接口。
+缺省情况下，设备名称为ConnetOS。
 
 命令格式
 +++++++++++++++
-**set interface gigabit-ethernet** *interface-name* **iss-port enable** { **false** | **true**}
+**set iss member** *member-id* **hostname** *hostname*
 
-**delete interface gigabit-ethernet** *interface-name* **iss-port enable**
+**delete iss member** *member-id* **hostname**
 
 参数说明
 +++++++++++++++
-*interface-name*：堆叠接口。
+*member-id*：堆叠设备的member ID。整数形式，取值范围是0～2。
 
-**false**：不使能指定接口的堆叠功能。
+ * 0：表示设备处于单机模式。
+ * 1：表示设备处于堆叠模式，且member ID为1。
+ * 2：表示设备处于堆叠模式，且member ID为2。
 
-**true**：使能指定接口的堆叠功能。
+*hostname*：本地文件名称。字符串形式，取值范围是1～63。支持区分大小写不支持空格。
 
 命令模式
 +++++++++++++++
@@ -261,16 +267,13 @@ set interface gigabit-ethernet iss-port enable
 
 使用指南
 +++++++++++++++
-堆叠接口是堆叠设备连接的接口， 一般在进行ISS配置的时候指定，配置完成重启后，成员设备进行初始化时完成端口模式的转换及进行相关配置。在运行的过程中也可以动态添加或者删除堆叠口成员。
-
-如果指定多个物理端口为堆叠接口，那么这些堆叠接口将形成汇聚接口组，进行流量负载分担。
-跨设备通信的报文需要通过堆叠接口转发。
+无。
 
 配置举例
 +++++++++++++++
-# 设置接口te-1/1/13为堆叠接口::
+# 设置设备名称为switcha::
 
- ConnetOS# set interface gigabit-ethernet te-1/1/13 iss-port enable true
+ ConnetOS 1# set iss member hostname switcha
 
 show iss
 -------------------------------------------
@@ -293,7 +296,7 @@ show iss
 
 使用指南
 +++++++++++++++
-此命令可以查看成员设备的Member ID、角色、选举优先级、设备MAC、桥MAC、设备名称信息。
+此命令可以查看成员设备的Member ID、角色、选举优先级、设备MAC、堆叠MAC、设备名称信息。
 
 配置举例
 +++++++++++++++
@@ -337,7 +340,7 @@ show iss configuration
 
 使用指南
 +++++++++++++++
-无
+无。
 
 配置举例
 +++++++++++++++
@@ -355,16 +358,16 @@ show iss configuration
  -----------------------------------------
   * indicates the control interface of ISS.
 
-===================   ============================
+===================   =================================
 项目                   含义
-===================   ============================
+===================   =================================
 Member ID             成员ID。
 ISS Link Status       堆叠链路状态。
 Interface             堆叠接口，用于连接邻居成员设备。
 Interface Status      接口状态。
-Neighbour             邻居成员设备的端口。
-*                     传输控制报文的接口。
-===================   ============================
+Neighbour             邻居成员设备的接口。
+*                     传输控制报文的接口，为自动选举接口。
+===================   =================================
 
 show iss mad
 -------------------------------------------
@@ -404,7 +407,7 @@ show iss statistics
 
 命令功能
 +++++++++++++++
-**show iss statistics** 用来查看堆叠接口上各个类型的报文收发计数统计信息。
+**show iss statistics** 用来查看堆叠接口上报文的统计信息。
  
 命令格式
 +++++++++++++++
@@ -420,7 +423,16 @@ show iss statistics
 
 使用指南
 +++++++++++++++
-无。
+ISS的主要报文有：
+
+ * Hello报文：点对点报文，在相邻设备间交互，携带本设备所收集到的所有的设备信息、优先级信息和其它上下文信息。
+ * Elect选举报文：点对点报文，设备仅仅携带用于选举的相关信息，如设备MAC地址，优先级，设备运行时间等。
+ * ElectAck：Elect选举回应报文。
+ * Anno通告报文：竞选结果通告报文，Master发送宣布竞选结果，Slave回复ACK进行确认。
+ * AnnoAck：Anno通告回应报文。
+ * Urgent报文：广播报文，用于ISS系统紧急事件的通告，如堆叠口DOWN。
+
+当堆叠正常运行时，只会收发hello报文。
 
 配置举例
 +++++++++++++++
@@ -455,7 +467,7 @@ show iss sync-status
 
 命令功能
 +++++++++++++++
-**show iss sync-status** 命令用来查看ISS堆叠系统内设备的配置同步状态。
+**show iss sync-status** 命令用来查看堆叠系统内成员设备的配置同步状态。
 
 命令格式
 +++++++++++++++
@@ -471,11 +483,11 @@ show iss sync-status
 
 使用指南
 +++++++++++++++
-无。
+堆叠建立时，当Slave重启后，会自动同步Master的配置信息。**show iss sync-status** 命令用来查看设备同步的时间和状态。
 
 配置举例
 +++++++++++++++
-# 查看ISS堆叠系统内设备的配置同步状态::
+# 查看堆叠系统内成员设备的配置同步状态::
 
  ConnetOS 1> show iss sync-status
  Member ID  Role    State    Last Sync Time
@@ -489,5 +501,5 @@ show iss sync-status
 Member ID          成员ID
 Role               成员角色
 State              设备状态
-Last Sync Time     上一次同步时间
+Last Sync Time     最后一次同步时间
 =================  =================
