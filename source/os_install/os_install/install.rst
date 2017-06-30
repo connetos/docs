@@ -1,9 +1,9 @@
-安装ConnetOS
+ConnetOS首次安装
 =======================================
 
 简介
 ---------------------------------------
-交换机在出厂时并不附带完整OS，而是仅预安装了ONIE（Open Network Install Environment）。ONIE在设备首次部署时运行，用于安装部署完整的ConnetOS。
+交换机在出厂时并不附带完整OS，用户可以通过ONIE（Open Network Install Environment）安装完整的ConnetOS。
 
 ConnetOS安装完成后，设备启动后直接载入ConnetOS运行，ONIE不再运行。当然在需要时，仍然可以激活ONIE用于OS的升级、重装等安装部署操作。
 
