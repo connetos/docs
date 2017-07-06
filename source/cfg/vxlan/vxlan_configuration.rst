@@ -37,6 +37,7 @@ VXLAN网络模型
 VXLAN网络模型示意图
 
 .. image:: vxlan_model.png
+    :width: 500
 
 VXLAN网络中有以下角色组成：
 
@@ -59,7 +60,8 @@ VXLAN网络中有以下角色组成：
 +++++++++++++++++++++++++++++++++++++++
 VXLAN报文格式
 
-.. image:: vxlan_packet.png
+.. image:: vxlan-packet.png
+    :width: 400
 
 外层Ethernet头封装。
 
@@ -162,6 +164,7 @@ MAC地址学习分为：
 站点内单播流量转发
 
 .. image:: vxlan_in-site_flow.png
+    :width: 500
 
 如上图所示，以VM 1（MAC地址为MAC 1）发送以太网帧到VM 4（MAC地址为MAC 4）为例，站点内单播流量的转发过程为：
 
@@ -176,6 +179,7 @@ MAC地址学习分为：
 站点间单播流量转发
 
 .. image:: vxlan_site-between_folw.png
+    :width: 500
 
 如上图所示，以VM 1（MAC地址为MAC 1）发送以太网帧给VM 7（MAC地址为MAC 7）为例，站点间单播流量的转发过程为：
 
@@ -202,6 +206,7 @@ BUM流量包括组播、广播和未知单播流量。
 头端复制方式转发示意图
 
 .. image:: vxlan_header_duplicate.png
+    :width: 500
 
 如上图所示，头端复制方式的BUM流量转发过程为：
 
