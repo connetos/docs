@@ -73,7 +73,8 @@ Diff-Serv是一种基于报文流的QoS模型。在Diff-Serv模型中，应用�
 
 QoS技术在网络中的应用位置。
 
-.. image:: qos_config.jpg
+.. image:: qos_config.png
+    :width: 500
 
 ConnetOS支持的QoS功能
 ---------------------------------------
@@ -91,7 +92,8 @@ ConnetOS在入接口完成流量分类和标记工作，在出接口进行队列
 
 QoS处理流程
 
-.. image:: qos_process.jpg
+.. image:: qos_process.png
+    :width: 500
 
 缺省情况下，ConnetOS上的QoS功能是关闭的，即不区分优先级，设备对所有的报文等同处理。
 
@@ -143,12 +145,14 @@ QoS处理流程
 CoS优先级
 
 .. image:: cos_priority.png
+    :width: 500
 
 **ToS**：Type of Service 服务类型，L3 IPv4包头携带的一个字节的字段，标记IP包的服务类型， ToS字段内可以是IP Precedence值，也可以是DSCP值。
 
 ToS优先级
 
 .. image:: tos_priority.png
+    :width: 500
 
 **IP Precedence**： IP 优先级， L3 IP包头携带的分类信息，共占3bits，范围为0～7。
 
