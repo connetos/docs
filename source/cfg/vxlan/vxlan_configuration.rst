@@ -61,7 +61,7 @@ VXLAN网络中有以下角色组成：
 VXLAN报文格式
 
 .. image:: vxlan-packet.png
-    :width: 400
+    :width: 350
 
 外层Ethernet头封装。
 
