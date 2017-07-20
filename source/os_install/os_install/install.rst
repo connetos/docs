@@ -43,7 +43,7 @@ ConnetOS安装完成后，设备启动后直接载入ConnetOS运行，ONIE不再
 
     date -s 20170101;tar zxf connetos_c1020_2.1.5-30k17_amd64.bin;ls;
 
-#. 安装引导，进行重启
+#. 安装引导，进行重启::
 
     grub-install --boot-directory=/mnt/boot /dev/sda;rm -rf connetos_c1020_2.1.5-30k17_amd64.bin;sync;reboot;
 
