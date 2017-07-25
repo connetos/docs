@@ -20,6 +20,7 @@ ConnetOS是云启科技公司开发的一款适用于现代数据中心网络的
    cfg/index
    cli/index
    API/index
+   config_example/index
    solution/index
    app/index
    one/index
