@@ -21,21 +21,21 @@ switch可以单独升级，但是linux必须和switch一起升级。
 
 #. 登录到交换机上::
 
-    admin@ConnetOS:~$
+    root@ConnetOS:~$
 
 #. 查看设备分区::
 
-    admin@ConnetOS:~$ fdisk –l
+    root@ConnetOS:~$ fdisk –l
 
 #. 将U盘挂载到mnt下::
 
-    admin@ConnetOS:~$ sudo mount /dev/sdc4 /mnt
+    root@ConnetOS:~$ mount /dev/sdc4 /mnt
 
 #. 查看bin文件是否成功挂载到mnt下:: 
   
-    admin@ConnetOS:~$ cd /mnt/
+    root@ConnetOS:~$ cd /mnt/
 
-    admin@ConnetOS:/mnt$ ls
+    root@ConnetOS:/mnt$ ls
 
     connetos_c1020_2.1.5-30k17_amd64.bin  IxNetwork_8.20_EA.exe  System Volume Information 
 
@@ -44,17 +44,17 @@ switch可以单独升级，但是linux必须和switch一起升级。
 
 #. 将connetos_*.bin拷贝到/var/upgrade目录下，例如::
     
-    admin@ConnetOS:/mnt$ cp connetos_c1020_2.1.5-30k17_amd64.bin /var/upgrade/
+    root@ConnetOS:/mnt$ cp connetos_c1020_2.1.5-30k17_amd64.bin /var/upgrade/
      
 #. 重启设备，系统将自动完成升级。两种重启方式选择一种即可。
 
    * 在linux shell下执行::
 
-      admin@ConnetOS $ sudo reboot
+      root@ConnetOS $ reboot
  
    * 在CLI shell下，执行::
 
-      admin@ConnetOS $ cli
+      root@ConnetOS $ cli
 
       ConnetOS> request system reboot
 
@@ -64,17 +64,17 @@ switch升级的步骤如下：
 
 #. 登录到交换机上::
 
-    admin@ConnetOS:~$
+    root@ConnetOS:~$
 
 #. 安装升级文件::
 
-    admin@ConnetOS:~$ sudo dpkg -i switch_c1020_2.1.5-30z19_amd64.deb
+    root@ConnetOS:~$ dpkg -i switch_c1020_2.1.5-30z19_amd64.deb
 
 #. 重启设备，系统将自动完成升级。两种重启方式选择一种即可。
 
    * 在linux shell下执行::
 
-      admin@ConnetOS $ sudo reboot
+      root@ConnetOS $ reboot
  
    * 在CLI shell下，执行::
 
