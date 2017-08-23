@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-解决方案
+配置举例
 =====================================
 
 
@@ -13,8 +13,5 @@
    :numbered:
    :glob:
 
-   shunt
-   sdrop_solution
-   cdn
-   visual
-   reliability
+   cli_cfg/index
+   api_cfg/index

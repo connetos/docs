@@ -3,18 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-解决方案
+API配置举例
 =====================================
 
-
-
 .. toctree::
-   :maxdepth: 1
-   :numbered:
-   :glob:
+   :maxdepth: 2
+   
+   
+   qos_example
 
-   shunt
-   sdrop_solution
-   cdn
-   visual
-   reliability
+   
+        
+

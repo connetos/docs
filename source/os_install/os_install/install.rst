@@ -1,9 +1,9 @@
-ConnetOS首次安装
+首次安装
 =======================================
 
 简介
 ---------------------------------------
-交换机在出厂时并不附带完整OS，用户可以通过ONIE（Open Network Install Environment）安装完整的ConnetOS。
+交换机在出厂时一般已经附带了完整的ConnetOS，如果没有安装，用户可以通过ONIE（Open Network Install Environment）安装完整的ConnetOS。
 
 ConnetOS安装完成后，设备启动后直接载入ConnetOS运行，ONIE不再运行。当然在需要时，仍然可以激活ONIE用于OS的升级、重装等安装部署操作。
 
@@ -37,15 +37,15 @@ ConnetOS安装完成后，设备启动后直接载入ConnetOS运行，ONIE不再
 
 #. 挂载分区到目录，并拷贝bin文件到目录下，并进行解压::
 
-    mount /dev/sda1 /mnt;cd /mnt;cp /ConnetOS_C1020_2.0.1_43D18.bin .;sed -i 1d ConnetOS_C1020_2.0.1_43D18.bin;
+    mount /dev/sda1 /mnt;cd /mnt;cp /connetos_c1020_2.1.5-30k17_amd64.bin .;sed -i 1d ConnetOS_C1020_2.0.1_43D18.bin;
 
 #. 设置设备时间，防止解压出错::
 
-    date -s 20170101;tar zxf ConnetOS_C1020_2.0.1_43D18.bin;ls;
+    date -s 20170101;tar zxf connetos_c1020_2.1.5-30k17_amd64.bin;ls;
 
-#. 安装引导，进行重启
+#. 安装引导，进行重启::
 
-    grub-install --boot-directory=/mnt/boot /dev/sda;rm -rf ConnetOS_C1020_2.0.1_43D18.bin;sync;reboot;
+    grub-install --boot-directory=/mnt/boot /dev/sda;rm -rf connetos_c1020_2.1.5-30k17_amd64.bin;sync;reboot;
 
 #. 重启成功，软件安装完成。
 
