@@ -18,7 +18,7 @@
 
 技术支持：tech@connetos.com
 
-公司网站：http://www.connetos.com
+公司网站：http://yunqi.ai
 
 公司地址：北京市海淀区中关村软件园云基地C座一楼120室
 
