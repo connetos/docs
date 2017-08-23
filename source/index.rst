@@ -17,16 +17,15 @@ Welcome to ConnetOS
    :glob:
 
   
-   hardware
    quick_start/index
    os_install/index
    cfg/index
    cli/index
    API/index
-   config_example/index
    solution/index
    app/index
    one/index
+   hardware
    download/index
    faq/index
    about_us/index
