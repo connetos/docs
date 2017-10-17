@@ -263,12 +263,6 @@ Type7 LSA由NSSA区域的ASBR产生，在NSSA区域内传播。当Type7 LSA到�
    
    骨干区域的Area ID为0。
 
-#. 配置OSPF区域所包含的网段。
-  
-   ConnetOS# **set protocols ospf4 area** *area-id* **area-range** *network-address* **advertise enable** { **false** | **true** }
-  
-   一个网段只能属于一个区域。
-
 #. 使能接口的OSPF功能
 
    ConnetOS# **set protocols ospf4 area** *area-id* **interface** *l3-interface-name* [ **vif** *l3-interface-name.1* ] **addres** *ip-address* **enable** { **false** | **true** }
