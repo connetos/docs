@@ -1,21 +1,32 @@
 配置堆叠
 =======================================
 
+切换堆叠模式
+---------------------------------------
+#. 进入命令行运维模式。
+
+   ConnetOS>
+
+#. 配置堆叠设备的成员ID。
+
+   ConnetOS> **set member-id** *member-id*
+
+   一个堆叠系统内，成员设备的Member ID不能相同。
+
+#. 重启系统。
+
+   ConnetOS>  **request system reboot**
+
+
 配置堆叠基本功能
 ---------------------------------------
 #. 进入配置模式。
 
    ConnetOS> **configure**
 
-#. 配置堆叠设备的成员ID。
-
-   ConnetOS# **set member-id** *member-id*
-
-   一个堆叠系统内，成员设备的Member ID不能相同。
-
 #. 配置堆叠设备的选举优先级。
 
-   ConnetOS# **set member-id** *member-id* **priority** *priority-number*
+   ConnetOS# **set iss member** *member-id* **priority** *priority-number*
 
    缺省情况下，选举优先级为1。数值越大，优先级越高
 
@@ -37,17 +48,17 @@
 
 #. 使能ISS MAD的检测功能。
 
-   ConnetOS# **set member-id** *member-id* **mad enable** { **false** | **true** }
+   ConnetOS# **set iss member** *member-id* **mad enable** { **false** | **true** }
 
    缺省情况下，MAD的检测功能没有使能
 
 #. 配置用于ISS MAD的检测的接口。
 
-   ConnetOS# **set member-id** *member-id* **mad interface** *interface-name*
+   ConnetOS# **set iss member** *member-id* **mad interface** *interface-name*
  
 #. 配置用于ISS MAD检测时不进行shutdown的接口。
   
-   ConnetOS# **set member-id** *member-id* **mad excluded-interface** *interface-name*
+   ConnetOS# **set iss member** *member-id* **mad excluded-interface** *interface-name*
 
 #. 提交配置。
 
